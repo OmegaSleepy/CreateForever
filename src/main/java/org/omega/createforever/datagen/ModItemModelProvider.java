@@ -1,20 +1,21 @@
 package org.omega.createforever.datagen;
 
-import net.minecraft.client.model.Model;
+import com.mojang.logging.LogUtils;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import org.omega.createforever.Createforever;
-import org.omega.createforever.items.ModItems;
+import org.slf4j.Logger;
 
 import static org.omega.createforever.Createforever.MODID;
 import static org.omega.createforever.items.ModItems.RANKS;
 import static org.omega.createforever.items.ModItems.SUITS;
 
 public class ModItemModelProvider extends ItemModelProvider {
+
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, MODID, existingFileHelper);
     }
@@ -28,8 +29,11 @@ public class ModItemModelProvider extends ItemModelProvider {
                 String cardId = suit.toLowerCase() + "_" + rank.toLowerCase();
                 ItemModelBuilder builder = getBuilder(cardId);
 
+                LOGGER.info("Registering {}", cardId);
+
                 builder.parent(template);
-                builder.texture("missing", modLoc("block/" + "concrete"));
+//                builder.texture("missing", modLoc("block/" + "concrete_powder"));
+                builder.texture("missing", modLoc("item/card/" + cardId));
             }
         }
     }
