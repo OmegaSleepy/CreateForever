@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "minecraft:diorite"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:calcite"
+    }
+  ]
+}

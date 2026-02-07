@@ -1,0 +1,13 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "minecraft:bamboo"
+    }
+  ],
+  "results": [
+    {
+      "id": "mynethersdelight:powder_cannon"
+    }
+  ]
+}

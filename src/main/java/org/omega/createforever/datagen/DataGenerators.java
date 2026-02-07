@@ -10,13 +10,13 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import org.omega.createforever.Createforever;
+import org.omega.createforever.CreateForever;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = Createforever.MODID)
+@EventBusSubscriber(modid = CreateForever.MODID)
 public class DataGenerators {
 
     @SubscribeEvent

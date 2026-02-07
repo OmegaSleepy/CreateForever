@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.omega.createforever.blocks.ModBlocks;
+import org.omega.createforever.items.ModItems;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -43,6 +44,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CARD_PACK, 1)
+                .pattern("?#!")
+                .pattern("?L!")
+                .pattern("?#!")
+                .define('?', Items.BLACK_DYE)
+                .define('!', Items.RED_DYE)
+                .define('#', Items.PAPER)
+                .define('L', Items.SLIME_BALL)
+                .unlockedBy("paper", has(Items.PAPER))
+                .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CONCRETE_POWDER.get(), 8)
                 .requires(Blocks.SAND)

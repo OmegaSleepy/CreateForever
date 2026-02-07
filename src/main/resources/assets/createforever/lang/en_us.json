@@ -4,7 +4,10 @@
   "block.createforever.concrete": "Concrete",
   "item.createforever.example_item": "Example Item",
 
+  "item.createforever.propulsion_staff": "Staff of Propulsion",
+
   "item.createforever.card_pack": "Card Pack",
+  "tab.createforever.cards": "Playing Cards",
 
   "item.createforever.clubs_ace":"Clubs Ace",
   "item.createforever.clubs_2":"Clubs 2",

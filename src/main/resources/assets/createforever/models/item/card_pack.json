@@ -13,13 +13,14 @@
 			"faces": {
 				"north": {"uv": [0, 0, 5, 7], "texture": "#1"},
 				"east": {"uv": [0, 8.125, 0.875, 13.875], "texture": "#1"},
-				"south": {"uv": [0, 0, 4.875, 7], "texture": "#1"},
+				"south": {"uv": [0, 0, 5, 7], "texture": "#1"},
 				"west": {"uv": [0, 7, 12, 7.5], "texture": "#1"},
 				"up": {"uv": [1, 8, 1.97, 13.86339], "texture": "#1"},
 				"down": {"uv": [5.72, 7.86339, 0, 7.5], "texture": "#1"}
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [33, 0, 0],

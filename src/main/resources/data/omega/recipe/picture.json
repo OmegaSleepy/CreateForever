@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "camerapture:picture"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "ingredients": [
+    {
+      "item": "camerapture:picture"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:paper"
+  }
+}

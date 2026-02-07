@@ -5,7 +5,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ConcretePowderBlock;
-import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -14,7 +13,7 @@ import org.omega.createforever.items.ModItems;
 
 import java.util.function.Supplier;
 
-import static org.omega.createforever.Createforever.MODID;
+import static org.omega.createforever.CreateForever.MODID;
 
 public class ModBlocks {
 

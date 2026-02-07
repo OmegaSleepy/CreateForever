@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+	{
+      "item": "minecraft:netherrack"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+	{
+      "item": "minecraft:iron_nugget"
+    },
+	{
+      "item": "minecraft:iron_nugget"
+    },
+	{
+		"type": "fluid_stack",
+		"amount": 250,
+		"fluid": "minecraft:lava"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:crimsite"
+    }
+  ]
+}

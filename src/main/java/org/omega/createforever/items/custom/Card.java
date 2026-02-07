@@ -6,14 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Card extends Item {
-    static List<Card> cards = new ArrayList<>();
-    public String suit;
-    public String value;
+    public static List<Card> cards = new ArrayList<>();
 
-    public Card(String suit, String value) {
+    public Card() {
         super(new Item.Properties().stacksTo(1));
-        this.suit = suit;
-        this.value = value;
         cards.add(this);
     }
 }

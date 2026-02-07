@@ -1,0 +1,23 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+	{
+      "item": "minecraft:basalt"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+	{
+      "item": "minecraft:basalt"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:tuff"
+    }
+  ]
+}

@@ -1,13 +1,16 @@
 package org.omega.createforever.items;
 
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.omega.createforever.items.custom.Card;
 import org.omega.createforever.items.custom.CardPack;
+import org.omega.createforever.items.custom.PropelStaff;
 
 import java.util.List;
 
-import static org.omega.createforever.Createforever.MODID;
+import static org.omega.createforever.CreateForever.MODID;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
@@ -18,11 +21,13 @@ public class ModItems {
     static {
         for (String suit : SUITS) {
             for (String value : RANKS) {
-                ITEMS.register((suit.toLowerCase()+"_"+value.toLowerCase()), () -> new Card(suit, value));
+                ITEMS.register((suit.toLowerCase()+"_"+value.toLowerCase()), Card::new);
             }
         }
-        ITEMS.register("card_pack", CardPack::new);
     }
+
+    public static final DeferredItem<Item> CARD_PACK = ITEMS.register("card_pack", CardPack::new);
+    public static final DeferredItem<Item> PROPULTION_STAFF = ITEMS.register("propulsion_staff", PropelStaff::new);
 
     public static void init(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

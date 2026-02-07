@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+	{
+      "item": "minecraft:quartz_block"
+    },
+    {
+      "item": "create:copper_nugget"
+    },
+	{
+      "item": "create:copper_nugget"
+    },
+	{
+      "item": "create:copper_nugget"
+    },
+	{
+		"type": "fluid_stack",
+		"amount": 250,
+		"fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:veridium"
+    }
+  ]
+}

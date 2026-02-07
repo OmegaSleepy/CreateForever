@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+	{
+      "item": "minecraft:tuff"
+    },
+    {
+      "item": "create:zinc_nugget"
+    },
+	{
+      "item": "create:zinc_nugget"
+    },
+	{
+      "item": "create:zinc_nugget"
+    },
+	{
+		"type": "fluid_stack",
+		"amount": 250,
+		"fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:asurine"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "create:compacting",
+  "heat_requirement": "superheated",
+  "ingredients": [
+  {
+      "item": "minecraft:clay"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    },
+	{
+      "item": "minecraft:gold_nugget"
+    },
+	{
+      "item": "minecraft:gold_nugget"
+    },
+	{
+		"type": "fluid_stack",
+		"amount": 250,
+		"fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:ochrum"
+    }
+  ]
+}
