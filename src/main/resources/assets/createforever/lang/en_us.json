@@ -1,8 +1,15 @@
 {
-  "itemGroup.createforever": "Example Mod Tab",
   "block.createforever.concrete_powder": "Concrete Powder",
   "block.createforever.concrete": "Concrete",
-  "item.createforever.example_item": "Example Item",
+
+  "tab.createforever.flowers": "Martinica Flowers",
+
+
+  "block.createforever.orchid": "Orchid",
+  "block.createforever.chrysanthemum": "Chrysanthemum",
+  "block.createforever.amaryllis": "Amaryllis",
+  "block.createforever.bluebell": "Bluebell",
+  "block.createforever.violet": "Violet",
 
   "item.createforever.propulsion_staff": "Staff of Propulsion",
 

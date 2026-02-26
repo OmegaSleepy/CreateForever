@@ -14,6 +14,7 @@ import org.omega.createforever.items.ModItems;
 import org.omega.createforever.items.custom.Card;
 
 import static org.omega.createforever.CreateForever.MODID;
+import static org.omega.createforever.blocks.ModBlocks.FLOWERS;
 
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -22,11 +23,22 @@ public class ModTabs {
     public static final Holder<CreativeModeTab> cards = TABS.register("tab.createforever.cards",
             () -> CreativeModeTab.builder()
             .title(Component.translatable("tab.createforever.cards"))
-            .icon(() -> new ItemStack(Card.cards.get(0).asItem()))
+            .icon(() -> new ItemStack(Card.cards.getFirst().asItem()))
             .displayItems(((parameters, output) -> {
                 output.accept(ModItems.CARD_PACK);
                 for (Card card : Card.cards) {
                     output.accept(card);
+                }
+            }))
+            .build());
+
+    public static final Holder<CreativeModeTab> flowers = TABS.register("tab.createforever.flowers",
+            () -> CreativeModeTab.builder()
+            .title(Component.translatable("tab.createforever.flowers"))
+            .icon(() -> new ItemStack(FLOWERS.getFirst().asItem()))
+            .displayItems(((parameters, output) -> {
+                for (var flower : FLOWERS) {
+                    output.accept(flower);
                 }
             }))
             .build());
