@@ -25,6 +25,7 @@ import static org.omega.createforever.CreateForever.MODID;
 public class ModBlocks {
 
     public static final List<DeferredBlock<? extends Block>> FLOWERS = new ArrayList<>();
+    public static final List<DeferredBlock<? extends Block>> POTS = new ArrayList<>();
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 
@@ -57,8 +58,8 @@ public class ModBlocks {
 
     /* ===== TALL FLOWERS ===== */
 
-    public static final DeferredBlock<SimpleTallFlower> RED_GINGER = registerBlock("red_ginger",
-            () -> new SimpleTallFlower(MapColor.COLOR_RED, Items.RED_DYE));
+//    public static final DeferredBlock<SimpleTallFlower> RED_GINGER = registerBlock("red_ginger",
+//            () -> new SimpleTallFlower(MapColor.COLOR_RED, Items.RED_DYE));
 
 
     private static <T extends Block> DeferredBlock<T> registerFlower(String name, Supplier<T> blockSupplier) {
@@ -67,6 +68,7 @@ public class ModBlocks {
 
         DeferredBlock<FlowerPotBlock> pot = registerFlowerPot(name, flower);
         FLOWERS.add(flower);
+        POTS.add(pot);
         return flower;
     }
 
@@ -79,7 +81,6 @@ public class ModBlocks {
                 )
         );
     }
-
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

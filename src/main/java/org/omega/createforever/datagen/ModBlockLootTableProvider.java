@@ -19,6 +19,13 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.CONCRETE_POWDER.get());
         dropSelf(ModBlocks.CONCRETE.get());
+
+        for(var that: ModBlocks.FLOWERS){
+            dropSelf(that.get());
+        }
+        for (var that: ModBlocks.POTS){
+            dropSelf(that.get());
+        }
     }
 
     @Override
