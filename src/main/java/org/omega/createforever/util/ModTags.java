@@ -11,6 +11,8 @@ import org.omega.createforever.CreateForever;
 public class ModTags {
     public static class Blocks {
 
+        public static final TagKey<Block> FLOWERS = createTag("flowers");
+
         private static TagKey<Block> createTag(String name) {
             return BlockTags.create(ResourceLocation.fromNamespaceAndPath(CreateForever.MODID, name));
         }

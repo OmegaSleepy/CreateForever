@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.omega.createforever.items.custom.Card;
 import org.omega.createforever.items.custom.CardPack;
+import org.omega.createforever.items.custom.MagicBoneMealItem;
 import org.omega.createforever.items.custom.PropelStaff;
 
 import java.util.List;
@@ -28,6 +29,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> CARD_PACK = ITEMS.register("card_pack", CardPack::new);
     public static final DeferredItem<Item> PROPULTION_STAFF = ITEMS.register("propulsion_staff", PropelStaff::new);
+
+    public static final DeferredItem<Item> MAGIC_BONE_MEAL = ITEMS.register("magic_bonemeal", MagicBoneMealItem::new);
 
     public static void init(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
