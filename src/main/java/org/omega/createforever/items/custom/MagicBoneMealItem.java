@@ -10,6 +10,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.UnknownNullability;
 import org.omega.createforever.util.ModTags;
 
 public class MagicBoneMealItem extends Item {
@@ -28,6 +30,9 @@ public class MagicBoneMealItem extends Item {
         var y = pos.getY();
         var z = pos.getZ();
 
+
+        if(!isValidBlock(world.getBlockState(pos))) return InteractionResult.FAIL;
+
         if(!world.isClientSide()) {
             assert context.getPlayer() != null;
 
@@ -37,7 +42,7 @@ public class MagicBoneMealItem extends Item {
 
                 world.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.BLOCKS, 1.0F, 1.0F);
 
-                for (int i = 0; i < 30; i++) {
+                for (int i = 0; i < 4; i++) {
                     world.addFreshEntity(
                             new ItemEntity(
                                     world,
@@ -47,7 +52,7 @@ public class MagicBoneMealItem extends Item {
                     );
                 }
 
-                return InteractionResult.SUCCESS;
+                return InteractionResult.CONSUME;
             }
             return InteractionResult.FAIL;
         }
@@ -56,35 +61,11 @@ public class MagicBoneMealItem extends Item {
         return super.useOn(context);
     }
 
-//
-//                for (int i = 0; i < 2; i++) {
-//                    world.spawnEntity(
-//                            new ItemEntity(
-//                                    world,
-//                                    x+0.5,y,z+0.5,
-//                                    blockClicked.getPickStack(world,context.getBlockPos(),blockClicked.getDefaultState())));
-//                }
-//                for (int i = 0; i < 300; i++) {((ServerWorld) world).spawnParticles(
-//                        ModParticles.GREEN_SPARKLE,
-//                        x + 0.5,
-//                        y + 2,
-//                        z + 0.5,
-//                        1, 0, 1, 0, 0.01
-//                );}
-//
-//            } else{
-//                return ActionResult.FAIL;
-//            }
-//
-//        }
-//
-//        return ActionResult.SUCCESS;
-//    }
 
+    private boolean isValidBlock (@UnknownNullability BlockState blockClicked) {
 
-    private boolean isValidBlock (Block blockClicked) {
-        return blockClicked.getStateDefinition().any().is(ModTags.Blocks.FLOWERS) ||
-                blockClicked.getStateDefinition().any().is(BlockTags.FLOWERS) ||
-                blockClicked.getStateDefinition().any().is(BlockTags.TALL_FLOWERS);
+        return blockClicked.is(ModTags.Blocks.FLOWERS) ||
+                blockClicked.is(BlockTags.FLOWERS) ||
+                blockClicked.is(BlockTags.TALL_FLOWERS);
     }
 }
