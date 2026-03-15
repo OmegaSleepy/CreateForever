@@ -14,7 +14,6 @@ import org.omega.createforever.items.ModItems;
 import org.omega.createforever.items.custom.Card;
 
 import static org.omega.createforever.CreateForever.MODID;
-import static org.omega.createforever.blocks.ModBlocks.FLOWERS;
 
 public class ModTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);

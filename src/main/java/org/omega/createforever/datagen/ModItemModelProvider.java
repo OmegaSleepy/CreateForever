@@ -9,7 +9,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.slf4j.Logger;
 
 import static org.omega.createforever.CreateForever.MODID;
-import static org.omega.createforever.blocks.ModBlocks.FLOWERS;
 import static org.omega.createforever.items.ModItems.RANKS;
 import static org.omega.createforever.items.ModItems.SUITS;
 
