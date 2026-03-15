@@ -42,9 +42,9 @@ public class CardPack extends Item {
         BlockPos pos = new BlockPos((int)x, (int)y, (int)z);
 
         player.swing(interactionHand);
-        player.getInventory().getItem(interactionHand.ordinal()+1).setCount(0);
         level.playSound(player, pos, SoundEvents.BUNDLE_DROP_CONTENTS, SoundSource.PLAYERS, 1.0F, 1.0F);
 
-        return super.use(level, player, interactionHand);
+        return InteractionResultHolder.consume(player.getInventory().getItem(interactionHand.ordinal()+1));
+
     }
 }

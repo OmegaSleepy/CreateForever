@@ -36,12 +36,5 @@ public class ModItemModelProvider extends ItemModelProvider {
                 builder.texture("missing", modLoc("item/card/" + cardId));
             }
         }
-
-        for (var flower : FLOWERS) {
-            String name = flower.getId().getPath();
-
-            withExistingParent(name, mcLoc("item/generated"))
-                    .texture("layer0", modLoc("block/" + name));
-        }
     }
 }

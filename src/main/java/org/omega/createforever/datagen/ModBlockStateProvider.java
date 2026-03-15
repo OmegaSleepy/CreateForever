@@ -19,19 +19,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.CONCRETE_POWDER);
         blockWithItem(ModBlocks.CONCRETE);
-
-        for (var flower: ModBlocks.FLOWERS){
-            String name = flower.getId().getPath();
-
-            ModelFile mf = models().cross(
-                    name,
-                    modLoc("block/" + name)
-            ).renderType("cutout");
-
-            simpleBlock(flower.get(), mf);
-
-        }
-
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
