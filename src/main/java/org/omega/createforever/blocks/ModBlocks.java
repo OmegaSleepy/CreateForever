@@ -23,14 +23,14 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CONCRETE =
             registerBlock("concrete",
-                    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE))
+                    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE))
                     );
 
     public static final DeferredBlock<Block> CONCRETE_POWDER =
             registerBlock("concrete_powder",
                     () -> new ConcretePowderBlock(
                             CONCRETE.get(),
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE_POWDER)) {
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE_POWDER)) {
                     });
 
 
