@@ -1,6 +1,5 @@
 {
-  "type": "create:compacting",
-  "heat_requirement": "heated",
+  "type": "create:mixing",
   "ingredients": [
 	{
       "item": "minecraft:andesite"
