@@ -46,6 +46,8 @@ Suggestions and contributions are welcome!
 - **v1.0.0b** (Latest) — Data fixes + new automation recipes
 - **v1.0.0a** — Initial release with colorless concrete, coloring recipes, 52 playing cards, and card pack
 
+> Current active branch is v1, will merge when the "Flowers of Martinica" are finalized
+
 ## License
 
 This project is licensed under the [LICENSE](LICENSE) file included in the repository.
