@@ -9,7 +9,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.slf4j.Logger;
 
 import static org.omega.createforever.CreateForever.MODID;
-import static org.omega.createforever.blocks.ModBlocks.FLOWERS;
 import static org.omega.createforever.items.ModItems.RANKS;
 import static org.omega.createforever.items.ModItems.SUITS;
 
@@ -35,13 +34,6 @@ public class ModItemModelProvider extends ItemModelProvider {
                 builder.parent(template);
                 builder.texture("missing", modLoc("item/card/" + cardId));
             }
-        }
-
-        for (var flower : FLOWERS) {
-            String name = flower.getId().getPath();
-
-            withExistingParent(name, mcLoc("item/generated"))
-                    .texture("layer0", modLoc("block/" + name));
         }
     }
 }

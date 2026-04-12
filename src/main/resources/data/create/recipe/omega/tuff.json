@@ -1,18 +1,16 @@
 {
-  "type": "create:compacting",
-  "heat_requirement": "superheated",
+  "type": "create:mixing",
   "ingredients": [
 	{
-      "item": "minecraft:basalt"
+      "item": "minecraft:andesite"
     },
     {
-      "item": "minecraft:cobblestone"
-    },
-	{
-      "item": "minecraft:basalt"
+      "tag": "c:cobblestones"
     },
     {
-      "item": "minecraft:cobblestone"
+      "type": "fluid_stack",
+      "amount": 50,
+      "fluid": "minecraft:lava"
     }
   ],
   "results": [
