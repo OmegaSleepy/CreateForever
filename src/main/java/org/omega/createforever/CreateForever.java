@@ -22,63 +22,32 @@ public class CreateForever {
     public static final String MODID = "createforever";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public CreateForever(IEventBus modEventBus, ModContainer modContainer) {
+    public CreateForever (IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
-//        modEventBus.addListener(this::onLoadComplete);
 
         ModItems.init(modEventBus);
         ModBlocks.init(modEventBus);
         ModTabs.init(modEventBus);
 
-        RegistryDumper.init();
+
+//        RegistryDumper.init();
+        //debug only ^^^^
 
         NeoForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup (final FMLCommonSetupEvent event) {
     }
 
-//    public void onLoadComplete(FMLLoadCompleteEvent event) {
-//        event.enqueueWork(() -> {
-//            JsonObject root = new JsonObject();
-//
-//            // Collect Blocks
-//            JsonArray blocksArray = new JsonArray();
-//            BuiltInRegistries.BLOCK.entrySet().forEach(entry ->
-//                    blocksArray.add(entry.getKey().location().toString()));
-//            root.add("blocks", blocksArray);
-//
-//            // Collect Items
-//            JsonArray itemsArray = new JsonArray();
-//            BuiltInRegistries.ITEM.entrySet().forEach(entry ->
-//                    itemsArray.add(entry.getKey().location().toString()));
-//            root.add("items", itemsArray);
-//
-//            saveRegistryJson(root);
-//        });
-//    }
-//
-//    private void saveRegistryJson(JsonObject json) {
-//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        File dumpFile = new File("config/" + MODID + "_registry_dump.json");
-//
-//        try (FileWriter writer = new FileWriter(dumpFile)) {
-//            gson.toJson(json, writer);
-//            LOGGER.info("Successfully dumped registries to: {}", dumpFile.getAbsolutePath());
-//        } catch (IOException e) {
-//            LOGGER.error("Failed to write registry dump file", e);
-//        }
-//    }
-
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
+    public void onServerStarting (ServerStartingEvent event) {
         LOGGER.info(MODID + " is starting");
     }
 
     @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
+        public static void onClientSetup (FMLClientSetupEvent event) {
             LOGGER.info("You are an interesting one");
         }
     }
