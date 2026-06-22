@@ -13,7 +13,6 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.creative_tab.ModTabs;
-import org.omega.createforever.events.RegistryDumper;
 import org.omega.createforever.items.ModItems;
 import org.slf4j.Logger;
 
@@ -28,10 +27,6 @@ public class CreateForever {
         ModItems.init(modEventBus);
         ModBlocks.init(modEventBus);
         ModTabs.init(modEventBus);
-
-
-//        RegistryDumper.init();
-        //debug only ^^^^
 
         NeoForge.EVENT_BUS.register(this);
     }

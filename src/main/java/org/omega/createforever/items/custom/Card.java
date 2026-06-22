@@ -8,7 +8,7 @@ import java.util.List;
 public class Card extends Item {
     public static List<Card> cards = new ArrayList<>();
 
-    public Card() {
+    public Card () {
         super(new Item.Properties().stacksTo(1));
         cards.add(this);
     }
