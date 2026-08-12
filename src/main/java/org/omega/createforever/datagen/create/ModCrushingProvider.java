@@ -14,10 +14,10 @@ public class ModCrushingProvider extends CrushingRecipeGen {
     public final GeneratedRecipe enrichedTuff = create(
             "enriched_tuff_crushing",
             b -> b.require(ModBlocks.ENRICHED_TUFF)
-                    .output(0.5f, Items.IRON_NUGGET)
-                    .output(0.5f, Items.GOLD_NUGGET)
-                    .output(0.6f, com.simibubi.create.AllItems.COPPER_NUGGET.asStack())
-                    .output(0.6f, AllItems.ZINC_NUGGET.asStack())
+                    .output(0.35f, Items.IRON_NUGGET)
+                    .output(0.35f, Items.GOLD_NUGGET)
+                    .output(0.4f, com.simibubi.create.AllItems.COPPER_NUGGET.asStack())
+                    .output(0.45f, AllItems.ZINC_NUGGET.asStack())
                     .duration(350)
     );
 

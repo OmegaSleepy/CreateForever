@@ -56,7 +56,7 @@ side = "BOTH"
 modId = "minecraft"
 type = "required"
 versionRange = "${minecraft_version_range}"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 # Dependency for Create

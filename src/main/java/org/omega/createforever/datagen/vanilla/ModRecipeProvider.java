@@ -69,15 +69,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("paper", has(Items.PAPER))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.LODESTONE)
-                .define('S', Items.CHISELED_STONE_BRICKS)
-                .define('#', Items.IRON_INGOT)
-                .pattern("SSS")
-                .pattern("S#S")
-                .pattern("SSS")
-                .unlockedBy("has_chiseled_stone_bricks", has(Items.CHISELED_STONE_BRICKS))
-                .save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BUNDLE)
                 .define('#', Items.STRING)
                 .define('L', Items.LEATHER)
