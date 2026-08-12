@@ -3,11 +3,14 @@ package org.omega.createforever.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import org.omega.createforever.CreateForever;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.items.ModItems;
 
@@ -44,6 +47,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+
+        SimpleCookingRecipeBuilder.blasting(
+                        Ingredient.of(Items.TUFF),
+                        RecipeCategory.BUILDING_BLOCKS, // or RecipeCategory.MISC / BLOCKS
+                        ModBlocks.ENRICHED_TUFF.get(),  // Result ItemLike
+                        0.4f,                           // Experience
+                        100                             // Cooking time in ticks (100 = 5 seconds)
+                )
+                .unlockedBy("has_tuff", has(Items.TUFF))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CreateForever.MODID, "enriching_tuff"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CARD_PACK, 1)
                 .pattern("?#!")
