@@ -19,6 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.CONCRETE_POWDER);
         blockWithItem(ModBlocks.CONCRETE);
+        blockWithItem(ModBlocks.ENRICHED_TUFF);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
