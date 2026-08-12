@@ -1,18 +1,16 @@
 package org.omega.createforever.blocks;
 
+import com.mojang.serialization.MapCodec;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ConcretePowderBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.omega.createforever.items.ModItems;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 import static org.omega.createforever.CreateForever.MODID;
@@ -32,6 +30,13 @@ public class ModBlocks {
                             CONCRETE.get(),
                             BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE_POWDER)) {
                     });
+
+    public static final DeferredBlock<Block> ENRICHED_TUFF =
+            registerBlock("enriched_tuff",
+                () -> new Block(
+                        BlockBehaviour.Properties.ofFullCopy(Blocks.TUFF)
+                )
+            );
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
