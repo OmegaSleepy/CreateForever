@@ -23,16 +23,6 @@ public class ModCrushingProvider extends CrushingRecipeGen {
                     .duration(350)
     );
 
-    public final GeneratedRecipe tuff = create(
-            "tuff",
-            b -> b.require(Items.TUFF)
-                    .output(0.2f, Items.IRON_NUGGET)
-                    .output(0.2f, Items.GOLD_NUGGET)
-                    .output(0.2f, com.simibubi.create.AllItems.COPPER_NUGGET.asStack())
-                    .output(0.2f, AllItems.ZINC_NUGGET.asStack())
-                    .duration(350)
-    );
-
     public ModCrushingProvider (PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
         super(output, registries, defaultNamespace);
     }
