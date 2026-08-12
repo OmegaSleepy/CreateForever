@@ -11,6 +11,9 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.omega.createforever.CreateForever;
+import org.omega.createforever.datagen.create.ModCompactingProvider;
+import org.omega.createforever.datagen.create.ModCrushingProvider;
+import org.omega.createforever.datagen.vanilla.*;
 
 import java.util.Collections;
 import java.util.List;

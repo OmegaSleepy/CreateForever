@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.CompactingRecipeGen;

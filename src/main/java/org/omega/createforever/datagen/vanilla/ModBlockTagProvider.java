@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

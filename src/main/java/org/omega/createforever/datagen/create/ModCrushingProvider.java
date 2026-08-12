@@ -1,13 +1,11 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.CrushingRecipeGen;
-import com.tterrag.registrate.providers.RegistrateGenericProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
 import org.omega.createforever.blocks.ModBlocks;
-import org.omega.createforever.items.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -76,6 +76,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S#S")
                 .pattern("SSS")
                 .unlockedBy("has_chiseled_stone_bricks", has(Items.CHISELED_STONE_BRICKS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BUNDLE)
+                .define('#', Items.STRING)
+                .define('L', Items.LEATHER)
+                .pattern("#")
+                .pattern("L")
+                .unlockedBy("has_leather", has(Items.LEATHER))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SADDLE)
+                .define('#', Items.LEATHER)
+                .define('i', Items.IRON_INGOT)
+                .pattern(" # ")
+                .pattern("#i#")
+                .unlockedBy("has_leather", has(Items.LEATHER))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CONCRETE_POWDER.get(), 8)
