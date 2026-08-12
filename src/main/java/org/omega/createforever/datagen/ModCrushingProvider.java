@@ -20,7 +20,7 @@ public class ModCrushingProvider extends CrushingRecipeGen {
                     .output(0.5f, Items.GOLD_NUGGET)
                     .output(0.6f, com.simibubi.create.AllItems.COPPER_NUGGET.asStack())
                     .output(0.6f, AllItems.ZINC_NUGGET.asStack())
-                    .duration(160)
+                    .duration(350)
     );
 
     public final GeneratedRecipe tuff = create(
@@ -30,7 +30,7 @@ public class ModCrushingProvider extends CrushingRecipeGen {
                     .output(0.2f, Items.GOLD_NUGGET)
                     .output(0.2f, com.simibubi.create.AllItems.COPPER_NUGGET.asStack())
                     .output(0.2f, AllItems.ZINC_NUGGET.asStack())
-                    .duration(160)
+                    .duration(350)
     );
 
     public ModCrushingProvider (PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String defaultNamespace) {
