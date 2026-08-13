@@ -12,7 +12,7 @@
       "id": "minecraft:flint"
     },
     {
-      "chance": 0.3,
+      "chance": 0.25,
       "id": "minecraft:gold_nugget"
     },
     {
@@ -24,7 +24,7 @@
       "id": "create:zinc_nugget"
     },
     {
-      "chance": 0.3,
+      "chance": 0.25,
       "id": "minecraft:iron_nugget"
     }
   ]
