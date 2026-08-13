@@ -1,5 +1,7 @@
 package org.omega.createforever.datagen.vanilla;
 
+import com.railwayteam.railways.registry.CRBlockSetTypes;
+import com.railwayteam.railways.registry.CRTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -18,8 +20,12 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+
+    private final CompletableFuture<HolderLookup.Provider> lookupProvider;
+
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
+        this.lookupProvider = registries;
     }
 
     Map<Item, Block> colorToConcrete = Map.ofEntries(
@@ -47,6 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+        LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
 
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(Items.TUFF),
