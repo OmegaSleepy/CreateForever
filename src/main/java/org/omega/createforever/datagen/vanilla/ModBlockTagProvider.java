@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -22,7 +22,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.CONCRETE_POWDER.get());
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.CONCRETE.get());
+                .add(ModBlocks.CONCRETE.get())
+                .add(ModBlocks.ENRICHED_TUFF.get());
     }
 
 }

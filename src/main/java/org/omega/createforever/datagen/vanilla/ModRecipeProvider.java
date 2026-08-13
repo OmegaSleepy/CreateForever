@@ -1,13 +1,18 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
+import com.railwayteam.railways.registry.CRBlockSetTypes;
+import com.railwayteam.railways.registry.CRTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import org.omega.createforever.CreateForever;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.items.ModItems;
 
@@ -15,8 +20,12 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+
+    private final CompletableFuture<HolderLookup.Provider> lookupProvider;
+
     public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
+        this.lookupProvider = registries;
     }
 
     Map<Item, Block> colorToConcrete = Map.ofEntries(
@@ -44,6 +53,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+        LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
+
+        SimpleCookingRecipeBuilder.blasting(
+                        Ingredient.of(Items.TUFF),
+                        RecipeCategory.BUILDING_BLOCKS, // or RecipeCategory.MISC / BLOCKS
+                        ModBlocks.ENRICHED_TUFF.get(),  // Result ItemLike
+                        0.4f,                           // Experience
+                        100                             // Cooking time in ticks (100 = 5 seconds)
+                )
+                .unlockedBy("has_tuff", has(Items.TUFF))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(CreateForever.MODID, "enriching_tuff"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CARD_PACK, 1)
                 .pattern("?#!")
@@ -54,6 +74,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('#', Items.PAPER)
                 .define('L', Items.SLIME_BALL)
                 .unlockedBy("paper", has(Items.PAPER))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.BUNDLE)
+                .define('#', Items.STRING)
+                .define('L', Items.LEATHER)
+                .pattern("#")
+                .pattern("L")
+                .unlockedBy("has_leather", has(Items.LEATHER))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SADDLE)
+                .define('#', Items.LEATHER)
+                .define('i', Items.IRON_INGOT)
+                .pattern(" # ")
+                .pattern("#i#")
+                .unlockedBy("has_leather", has(Items.LEATHER))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CONCRETE_POWDER.get(), 8)

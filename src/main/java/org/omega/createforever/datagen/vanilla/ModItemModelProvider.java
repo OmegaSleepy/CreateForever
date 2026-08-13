@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.data.PackOutput;

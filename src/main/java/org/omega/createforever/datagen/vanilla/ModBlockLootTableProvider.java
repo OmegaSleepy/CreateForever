@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen;
+package org.omega.createforever.datagen.vanilla;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -11,7 +11,7 @@ import org.omega.createforever.blocks.ModBlocks;
 import java.util.Set;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {
+    public ModBlockLootTableProvider(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
@@ -19,6 +19,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(ModBlocks.CONCRETE_POWDER.get());
         dropSelf(ModBlocks.CONCRETE.get());
+        dropSelf(ModBlocks.ENRICHED_TUFF.get());
     }
 
     @Override

@@ -37,6 +37,9 @@ public class ModTabs {
             event.accept(ModBlocks.CONCRETE);
             event.accept(ModBlocks.CONCRETE_POWDER);
         }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.ENRICHED_TUFF);
+        }
     }
 
     public static void init(IEventBus bus) {
