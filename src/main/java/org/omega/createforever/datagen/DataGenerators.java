@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.omega.createforever.CreateForever;
+import org.omega.createforever.datagen.create.LocometalWashingRecipeProvider;
 import org.omega.createforever.datagen.create.ModCompactingProvider;
 import org.omega.createforever.datagen.create.ModCrushingProvider;
 import org.omega.createforever.datagen.vanilla.*;
@@ -34,6 +35,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModCompactingProvider(packOutput, lookupProvider, CreateForever.MODID));
         generator.addProvider(event.includeServer(), new ModCrushingProvider(packOutput, lookupProvider, CreateForever.MODID));
+        generator.addProvider(event.includeServer(), new LocometalWashingRecipeProvider(packOutput, lookupProvider));
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
