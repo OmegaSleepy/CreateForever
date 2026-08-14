@@ -1,7 +1,5 @@
 package org.omega.createforever.datagen.vanilla;
 
-import com.railwayteam.railways.registry.CRBlockSetTypes;
-import com.railwayteam.railways.registry.CRTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
