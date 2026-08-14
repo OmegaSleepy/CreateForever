@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen.vanilla;
+package org.omega.createforever.datagen.create;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
@@ -37,7 +37,7 @@ public class LocometalRecipeProvider {
     // Map style path -> actual item registry path suffix
     public static final Map<String, String> LOCOMETAL_STYLE_ITEM_SUFFIXES = Map.ofEntries(
             // Base Styles
-            Map.entry("riveted", "locometal"),
+            Map.entry("riveted", "riveted_locometal"),
             Map.entry("slashed", "slashed_locometal"),
             Map.entry("brass_wrapped_slashed", "brass_wrapped_locometal"),
             Map.entry("copper_wrapped_slashed", "copper_wrapped_locometal"),
@@ -76,16 +76,17 @@ public class LocometalRecipeProvider {
             Map.entry("folding_door", "folding_locometal_door"),
 
             // Windows
-            Map.entry("round_pane_window", "round_pane_window"),
-            Map.entry("single_pane_window", "single_pane_window"),
-            Map.entry("two_pane_window", "two_pane_window"),
-            Map.entry("four_pane_window", "four_pane_window"),
+            Map.entry("round_pane_window", "round_pane_locometal_window"),
+            Map.entry("single_pane_window", "single_pane_locometal_window"),
+            Map.entry("two_pane_window", "two_pane_locometal_window"),
+            Map.entry("four_pane_window", "four_pane_locometal_window"),
 
             // Hazard Stripes
-            Map.entry("hazard_stripes_diagonal_black", "black_long_hazard_stripe"),
-            Map.entry("hazard_stripes_chevron_black", "black_chevron_hazard_stripe"),
-            Map.entry("hazard_stripes_diagonal_white", "white_long_hazard_stripe"),
-            Map.entry("hazard_stripes_chevron_white", "white_chevron_hazard_stripe")
+            //railways:red_hazard_stripes_chevron_on_black
+            Map.entry("hazard_stripes_diagonal_black", "hazard_stripes_diagonal_on_black"),
+            Map.entry("hazard_stripes_chevron_black", "hazard_stripes_chevron_on_black"),
+            Map.entry("hazard_stripes_diagonal_white", "hazard_stripes_diagonal_on_white"),
+            Map.entry("hazard_stripes_chevron_white", "hazard_stripes_chevron_on_white")
     );
 
     public static void buildRecipes(RecipeOutput recipeOutput, CompletableFuture<HolderLookup.Provider> registries) {

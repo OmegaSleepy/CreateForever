@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.blocks.ModBlocks;
+import org.omega.createforever.datagen.create.LocometalRecipeProvider;
+import org.omega.createforever.datagen.create.LocometalWashingRecipeProvider;
 import org.omega.createforever.items.ModItems;
 
 import java.util.Map;
