@@ -121,8 +121,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void hats(RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CROWN)
-                .define('#', Items.GOLD_INGOT)
-                .define('L', Items.DIAMOND)
+                .define('L', Items.GOLD_INGOT)
+                .define('#', Items.DIAMOND)
                 .pattern("L#L")
                 .pattern("LLL")
                 .unlockedBy("has_diamond", has(Items.DIAMOND))
@@ -179,6 +179,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("#E#")
                 .pattern("###")
                 .unlockedBy("has_green_wool", has(Items.GREEN_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CHEF)
+                .define('#', Items.BLACK_WOOL)
+                .define('B', Items.BROWN_DYE)
+                .define('R', Items.RED_DYE)
+                .pattern(" # ")
+                .pattern("R#R")
+                .pattern(" B ")
+                .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
                 .save(recipeOutput);
     }
 
