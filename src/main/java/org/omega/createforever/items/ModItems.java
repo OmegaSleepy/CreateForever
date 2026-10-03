@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.omega.createforever.items.custom.Card;
 import org.omega.createforever.items.custom.CardPack;
+import org.omega.createforever.items.custom.HatItem;
 
 import java.util.List;
 
