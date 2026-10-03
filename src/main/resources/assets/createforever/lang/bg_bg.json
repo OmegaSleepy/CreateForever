@@ -60,5 +60,15 @@
   "item.createforever.spades_10":"Спатия 10",
   "item.createforever.spades_jack":"Вале Спатия",
   "item.createforever.spades_queen":"Дама Спатия",
-  "item.createforever.spades_king":"Поп Спатия"
+  "item.createforever.spades_king":"Поп Спатия",
+
+  "tab.createforver.hats": "Шапки",
+
+  "item.createforever.capela": "Капела",
+  "item.createforever.crown": "Златна корона",
+  "item.createforever.cook": "Готварска шапка",
+  "item.createforever.mask_pumpkin": "Тиквена маска",
+  "item.createforever.mask_slime": "Слайм маска",
+  "item.createforever.chef": "Цилиндър",
+  "item.createforever.witch": "Вещерска Шапка"
 }
