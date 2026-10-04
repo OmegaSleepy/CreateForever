@@ -198,6 +198,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("B B")
                 .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.BARET)
+                .define('#', Items.BLACK_WOOL)
+                .define('F', Items.FEATHER)
+                .pattern("F  ")
+                .pattern("###")
+                .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
+            .save(recipeOutput);
     }
 
 }

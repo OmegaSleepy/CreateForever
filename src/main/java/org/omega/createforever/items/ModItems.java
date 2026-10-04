@@ -37,6 +37,7 @@ public class ModItems {
     public static final DeferredItem<Item> CHEF = ITEMS.register("chef", HatItem::new);
     public static final DeferredItem<Item> WITCH = ITEMS.register("witch", HatItem::new);
     public static final DeferredItem<Item> CAT_EARS = ITEMS.register("cat_ears", HatItem::new);
+    public static final DeferredItem<Item> BARET = ITEMS.register("baret", HatItem::new);
 
 
     public static void init (IEventBus modEventBus) {
