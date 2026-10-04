@@ -6,6 +6,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 import org.omega.createforever.client.BaseHatClientExtensions;
@@ -29,6 +31,8 @@ public abstract class BaseHatItem extends ArmorItem {
     @Override
     @SuppressWarnings("removal")
     public void initializeClient (Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(BaseHatClientExtensions.INSTANCE);
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            consumer.accept(BaseHatClientExtensions.INSTANCE);
+        }
     }
 }
