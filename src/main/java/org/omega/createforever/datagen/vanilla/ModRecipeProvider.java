@@ -115,6 +115,97 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, entry.getValue().getDescriptionId().replace("block.minecraft.", "concrete_powder."));
         }
 
+        hats(recipeOutput);
+
+    }
+
+    private void hats(RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CROWN)
+                .define('L', Items.GOLD_INGOT)
+                .define('#', Items.DIAMOND)
+                .pattern("L#L")
+                .pattern("LLL")
+                .unlockedBy("has_diamond", has(Items.DIAMOND))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.COOK)
+                .define('#', Items.WHITE_WOOL)
+                .define('S', Items.STRING)
+                .pattern("#")
+                .pattern("S")
+                .pattern("#")
+                .unlockedBy("has_wool", has(Items.WHITE_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.MASK_P)
+                .define('#', Items.CARVED_PUMPKIN)
+                .define('S', Items.STRING)
+                .pattern(" S ")
+                .pattern("S S")
+                .pattern(" # ")
+                .unlockedBy("has_carved_pumpkin", has(Items.CARVED_PUMPKIN))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.MASK_S)
+                .define('#', Items.SLIME_BLOCK)
+                .define('S', Items.STRING)
+                .pattern(" S ")
+                .pattern("S S")
+                .pattern(" # ")
+                .unlockedBy("has_slime", has(Items.SLIME_BLOCK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CAPELA)
+                .define('#', Items.WHEAT)
+                .define('S', Items.HAY_BLOCK)
+                .pattern(" # ")
+                .pattern("#S#")
+                .unlockedBy("has_hay_block", has(Items.HAY_BLOCK))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.MAFIA)
+                .define('#', Items.PURPLE_WOOL)
+                .define('R', Items.YELLOW_DYE)
+                .define('S', Items.STRING)
+                .pattern("SRS")
+                .pattern("###")
+                .unlockedBy("has_purple_wool", has(Items.PURPLE_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.WITCH)
+                .define('#', Items.GREEN_WOOL)
+                .define('E', Items.EMERALD)
+                .pattern(" # ")
+                .pattern("#E#")
+                .pattern("###")
+                .unlockedBy("has_green_wool", has(Items.GREEN_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CHEF)
+                .define('#', Items.BLACK_WOOL)
+                .define('B', Items.BROWN_DYE)
+                .define('R', Items.RED_DYE)
+                .pattern(" # ")
+                .pattern("R#R")
+                .pattern(" B ")
+                .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CAT_EARS)
+                .define('#', Items.BLACK_WOOL)
+                .define('B', Items.PINK_DYE)
+                .pattern("# #")
+                .pattern("B B")
+                .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.BARET)
+                .define('#', Items.BLACK_WOOL)
+                .define('F', Items.FEATHER)
+                .pattern("F  ")
+                .pattern("###")
+                .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
+            .save(recipeOutput);
     }
 
 }

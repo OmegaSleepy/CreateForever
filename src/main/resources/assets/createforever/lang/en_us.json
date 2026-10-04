@@ -57,5 +57,19 @@
   "item.createforever.spades_10":"Spades 10",
   "item.createforever.spades_jack":"Spades Jack",
   "item.createforever.spades_queen":"Spades Queen",
-  "item.createforever.spades_king":"Spades King"
+  "item.createforever.spades_king":"Spades King",
+
+  "tab.createforver.hats": "Hats",
+
+  "item.createforever.capela":"Capela",
+  "item.createforever.crown":"Golden Crown",
+  "item.createforever.cook":"Chef Hat",
+  "item.createforever.mask_pumpkin":"Pumpkin Mask",
+  "item.createforever.mask_slime":"Slime Mask",
+  "item.createforever.mafia":"Mafia Mask",
+  "item.createforever.chef":"Top Hat",
+  "item.createforever.witch":"Witch Hat",
+  "item.createforever.cat_ears":"Cat Ears",
+  "item.createforever.baret":"Baret"
+
 }

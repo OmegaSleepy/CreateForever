@@ -11,7 +11,9 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.items.ModItems;
+import org.omega.createforever.items.custom.BaseHatItem;
 import org.omega.createforever.items.custom.Card;
+import org.omega.createforever.items.custom.HatItem;
 
 import static org.omega.createforever.CreateForever.MODID;
 
@@ -21,28 +23,39 @@ public class ModTabs {
 
     public static final Holder<CreativeModeTab> cards = TABS.register("tab.createforever.cards",
             () -> CreativeModeTab.builder()
-            .title(Component.translatable("tab.createforever.cards"))
-            .icon(() -> new ItemStack(Card.cards.getFirst().asItem()))
-            .displayItems(((parameters, output) -> {
-                output.accept(ModItems.CARD_PACK);
-                for (Card card : Card.cards) {
-                    output.accept(card);
-                }
-            }))
-            .build());
+                    .title(Component.translatable("tab.createforever.cards"))
+                    .icon(() -> new ItemStack(Card.cards.getFirst().asItem()))
+                    .displayItems(((parameters, output) -> {
+                        output.accept(ModItems.CARD_PACK);
+                        for (Card card : Card.cards) {
+                            output.accept(card);
+                        }
+                    }))
+                    .build());
+
+    public static final Holder<CreativeModeTab> hats = TABS.register("tab.createforver.hats",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("tab.createforver.hats"))
+                    .icon(() -> new ItemStack(ModItems.CHEF.get()))
+                    .displayItems(((itemDisplayParameters, output) -> {
+                        for (BaseHatItem hat : HatItem.getHats()) {
+                            output.accept(hat);
+                        }
+                    }))
+                    .build());
 
 
-    public static void buildContents(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+    public static void buildContents (BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
             event.accept(ModBlocks.CONCRETE);
             event.accept(ModBlocks.CONCRETE_POWDER);
         }
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.ENRICHED_TUFF);
         }
     }
 
-    public static void init(IEventBus bus) {
+    public static void init (IEventBus bus) {
         TABS.register(bus);
         bus.addListener(ModTabs::buildContents);
     }
