@@ -117,7 +117,6 @@ dependencies {
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     runtimeOnly("maven.modrinth:u6dRKJwZ:Tbomhybz")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
-
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
