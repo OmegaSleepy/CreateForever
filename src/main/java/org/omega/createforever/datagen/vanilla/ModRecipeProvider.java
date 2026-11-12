@@ -217,8 +217,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.GREEN_CHRISTMAS_HAT)
-                .define('#', Items.GREEN_WOOL)
-                .define('F', Items.RED_WOOL)
+                .define('#', Items.WHITE_WOOL)
+                .define('F', Items.GREEN_WOOL)
                 .pattern("#  ")
                 .pattern("FFF")
                 .pattern("###")
