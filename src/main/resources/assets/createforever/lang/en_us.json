@@ -70,6 +70,8 @@
   "item.createforever.chef":"Top Hat",
   "item.createforever.witch":"Witch Hat",
   "item.createforever.cat_ears":"Cat Ears",
-  "item.createforever.baret":"Baret"
+  "item.createforever.baret":"Baret",
+  "item.createforever.christmas_red_hat": "Red Christmas Hat",
+  "item.createforever.christmas_green_hat": "Green Christmas Hat"
 
 }
