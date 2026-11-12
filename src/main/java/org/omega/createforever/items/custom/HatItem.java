@@ -13,7 +13,7 @@ public class HatItem extends BaseHatItem {
     private static final List<BaseHatItem> hats = new ArrayList<>();
 
     public HatItem () {
-        super(ArmorMaterials.LEATHER, new Item.Properties());
+        super(ArmorMaterials.LEATHER, new Item.Properties().stacksTo(1));
         hats.add(this);
     }
 
