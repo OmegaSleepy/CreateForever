@@ -17,7 +17,12 @@ public class ModTags {
     }
 
     public static class Items {
+        public static final TagKey<Item> CRAFTABLE_HATS = createTag("craftable_hats");
+
+        public static final TagKey<Item> LEGACY_HATS = createTag("legacy_hats");
         public static final TagKey<Item> CHRISTMAS_HATS = createTag("christmas_hats");
+        public static final TagKey<Item> HALLOWEEN_HATS = createTag("halloween_hats");
+        public static final TagKey<Item> CASUAL_HATS = createTag("casual_hats");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CreateForever.MODID, name));

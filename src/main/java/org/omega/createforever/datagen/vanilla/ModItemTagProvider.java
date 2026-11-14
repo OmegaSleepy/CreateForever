@@ -37,5 +37,31 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.GREEN_CHRISTMAS_HAT.get())
                 .add(ModItems.RED_CHRISTMAS_HAT.get())
                 .add(ModItems.BLACK_CHRISTMAS_HAT.get());
+
+        tag(ModTags.Items.LEGACY_HATS)
+                .add(ModItems.CAPELA.get())
+                .add(ModItems.COOK.get())
+                .add(ModItems.CROWN.get())
+                .add(ModItems.MAFIA.get())
+                .add(ModItems.MASK_P.get())
+                .add(ModItems.MASK_S.get())
+                .add(ModItems.CHEF.get())
+                .add(ModItems.WITCH.get());
+
+        tag(ModTags.Items.HALLOWEEN_HATS)
+                .add(ModItems.MASK_P.get())
+                .add(ModItems.MASK_S.get())
+                .add(ModItems.WITCH.get())
+                .add(ModItems.CAT_EARS.get());
+
+        tag(ModTags.Items.CASUAL_HATS)
+                .add(ModItems.CAPELA.get())
+                .add(ModItems.BARET.get());
+
+        tag(ModTags.Items.CRAFTABLE_HATS)
+                .addTag(ModTags.Items.CHRISTMAS_HATS)
+                .addTag(ModTags.Items.LEGACY_HATS)
+                .addTag(ModTags.Items.HALLOWEEN_HATS)
+                .addTag(ModTags.Items.CASUAL_HATS);
     }
 }
