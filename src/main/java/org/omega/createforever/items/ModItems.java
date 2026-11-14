@@ -36,9 +36,26 @@ public class ModItems {
     public static final DeferredItem<Item> MASK_S = ITEMS.register("mask_slime", HatItem::new);
     public static final DeferredItem<Item> CHEF = ITEMS.register("chef", HatItem::new);
     public static final DeferredItem<Item> WITCH = ITEMS.register("witch", HatItem::new);
+
     public static final DeferredItem<Item> CAT_EARS = ITEMS.register("cat_ears", HatItem::new);
     public static final DeferredItem<Item> BARET = ITEMS.register("baret", HatItem::new);
 
+    public static final DeferredItem<Item> WHITE_CHRISTMAS_HAT = ITEMS.register("christmas_white_hat", HatItem::new);
+    public static final DeferredItem<Item> LIGHT_GRAY_CHRISTMAS_HAT = ITEMS.register("christmas_light_gray_hat", HatItem::new);
+    public static final DeferredItem<Item> GRAY_CHRISTMAS_HAT = ITEMS.register("christmas_gray_hat", HatItem::new);
+    public static final DeferredItem<Item> BLACK_CHRISTMAS_HAT = ITEMS.register("christmas_black_hat", HatItem::new);
+    public static final DeferredItem<Item> BROWN_CHRISTMAS_HAT = ITEMS.register("christmas_brown_hat", HatItem::new);
+    public static final DeferredItem<Item> RED_CHRISTMAS_HAT = ITEMS.register("christmas_red_hat", HatItem::new);
+    public static final DeferredItem<Item> ORANGE_CHRISTMAS_HAT = ITEMS.register("christmas_orange_hat", HatItem::new);
+    public static final DeferredItem<Item> YELLOW_CHRISTMAS_HAT = ITEMS.register("christmas_yellow_hat", HatItem::new);
+    public static final DeferredItem<Item> LIME_CHRISTMAS_HAT = ITEMS.register("christmas_lime_hat", HatItem::new);
+    public static final DeferredItem<Item> GREEN_CHRISTMAS_HAT = ITEMS.register("christmas_green_hat", HatItem::new);
+    public static final DeferredItem<Item> CYAN_CHRISTMAS_HAT = ITEMS.register("christmas_cyan_hat", HatItem::new);
+    public static final DeferredItem<Item> LIGHT_BLUE_CHRISTMAS_HAT = ITEMS.register("christmas_light_blue_hat", HatItem::new);
+    public static final DeferredItem<Item> BLUE_CHRISTMAS_HAT = ITEMS.register("christmas_blue_hat", HatItem::new);
+    public static final DeferredItem<Item> PURPLE_CHRISTMAS_HAT = ITEMS.register("christmas_purple_hat", HatItem::new);
+    public static final DeferredItem<Item> MAGENTA_CHRISTMAS_HAT = ITEMS.register("christmas_magenta_hat", HatItem::new);
+    public static final DeferredItem<Item> PINK_CHRISTMAS_HAT = ITEMS.register("christmas_pink_hat", HatItem::new);
 
     public static void init (IEventBus modEventBus) {
         ITEMS.register(modEventBus);

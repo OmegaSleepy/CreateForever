@@ -73,6 +73,23 @@
   "item.createforever.chef": "Цилиндър",
   "item.createforever.witch": "Вещерска Шапка",
   "item.createforever.cat_ears": "Котешки Уши",
-  "item.createforever.baret": "Барета"
+  "item.createforever.baret": "Барета",
+
+  "item.createforever.christmas_white_hat": "Бяла Коледна Шапка",
+  "item.createforever.christmas_orange_hat": "Оранжева Коледна Шапка",
+  "item.createforever.christmas_magenta_hat": "Магента Коледна Шапка",
+  "item.createforever.christmas_light_blue_hat": "Светлосиня Коледна Шапка",
+  "item.createforever.christmas_yellow_hat": "Жълта Коледна Шапка",
+  "item.createforever.christmas_lime_hat": "Лимоненозелена Коледна Шапка",
+  "item.createforever.christmas_pink_hat": "Розова Коледна Шапка",
+  "item.createforever.christmas_gray_hat": "Сива Коледна Шапка",
+  "item.createforever.christmas_light_gray_hat": "Светлосива Коледна Шапка",
+  "item.createforever.christmas_cyan_hat": "Циан Коледна Шапка",
+  "item.createforever.christmas_purple_hat": "Лилава Коледна Шапка",
+  "item.createforever.christmas_blue_hat": "Синя Коледна Шапка",
+  "item.createforever.christmas_brown_hat": "Кафява Коледна Шапка",
+  "item.createforever.christmas_green_hat": "Зелена Коледна Шапка",
+  "item.createforever.christmas_red_hat": "Червена Коледна Шапка",
+  "item.createforever.christmas_black_hat": "Черна Коледна Шапка"
 
 }

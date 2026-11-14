@@ -70,6 +70,22 @@
   "item.createforever.chef":"Top Hat",
   "item.createforever.witch":"Witch Hat",
   "item.createforever.cat_ears":"Cat Ears",
-  "item.createforever.baret":"Baret"
+  "item.createforever.baret":"Baret",
 
+  "item.createforever.christmas_white_hat": "White Christmas Hat",
+  "item.createforever.christmas_orange_hat": "Orange Christmas Hat",
+  "item.createforever.christmas_magenta_hat": "Magenta Christmas Hat",
+  "item.createforever.christmas_light_blue_hat": "Light Blue Christmas Hat",
+  "item.createforever.christmas_yellow_hat": "Yellow Christmas Hat",
+  "item.createforever.christmas_lime_hat": "Lime Christmas Hat",
+  "item.createforever.christmas_pink_hat": "Pink Christmas Hat",
+  "item.createforever.christmas_gray_hat": "Gray Christmas Hat",
+  "item.createforever.christmas_light_gray_hat": "Light Gray Christmas Hat",
+  "item.createforever.christmas_cyan_hat": "Cyan Christmas Hat",
+  "item.createforever.christmas_purple_hat": "Purple Christmas Hat",
+  "item.createforever.christmas_blue_hat": "Blue Christmas Hat",
+  "item.createforever.christmas_brown_hat": "Brown Christmas Hat",
+  "item.createforever.christmas_green_hat": "Green Christmas Hat",
+  "item.createforever.christmas_red_hat": "Red Christmas Hat",
+  "item.createforever.christmas_black_hat": "Black Christmas Hat"
 }

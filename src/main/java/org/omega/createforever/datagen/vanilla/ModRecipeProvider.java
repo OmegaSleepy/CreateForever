@@ -13,8 +13,8 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.datagen.create.LocometalRecipeProvider;
-import org.omega.createforever.datagen.create.LocometalWashingRecipeProvider;
 import org.omega.createforever.items.ModItems;
+import org.omega.createforever.util.ModTags;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -23,7 +23,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private final CompletableFuture<HolderLookup.Provider> lookupProvider;
 
-    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+    public ModRecipeProvider (PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries);
         this.lookupProvider = registries;
     }
@@ -50,9 +50,50 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             Map.entry(Items.PINK_DYE, Blocks.PINK_CONCRETE_POWDER)
     );
 
+    Map<String, Item> hatColors = Map.ofEntries(
+            Map.entry("white", Blocks.WHITE_WOOL.asItem()),
+            Map.entry("light_gray", Blocks.LIGHT_GRAY_WOOL.asItem()),
+            Map.entry("gray", Blocks.GRAY_WOOL.asItem()),
+            Map.entry("black", Blocks.BLACK_WOOL.asItem()),
+
+            Map.entry("brown", Blocks.BROWN_WOOL.asItem()),
+            Map.entry("red", Blocks.RED_WOOL.asItem()),
+            Map.entry("orange", Blocks.ORANGE_WOOL.asItem()),
+            Map.entry("yellow", Blocks.YELLOW_WOOL.asItem()),
+
+            Map.entry("lime", Blocks.LIME_WOOL.asItem()),
+            Map.entry("green", Blocks.GREEN_WOOL.asItem()),
+            Map.entry("cyan", Blocks.CYAN_WOOL.asItem()),
+            Map.entry("light_blue", Blocks.LIGHT_BLUE_WOOL.asItem()),
+
+            Map.entry("blue", Blocks.BLUE_WOOL.asItem()),
+            Map.entry("purple", Blocks.PURPLE_WOOL.asItem()),
+            Map.entry("magenta", Blocks.MAGENTA_WOOL.asItem()),
+            Map.entry("pink", Blocks.PINK_WOOL.asItem())
+    );
+
+    Map<String, Item> colorToDye = Map.ofEntries(
+            Map.entry("white", Items.WHITE_DYE),
+            Map.entry("light_gray", Items.LIGHT_GRAY_DYE),
+            Map.entry("gray", Items.GRAY_DYE),
+            Map.entry("black", Items.BLACK_DYE),
+            Map.entry("brown", Items.BROWN_DYE),
+            Map.entry("red", Items.RED_DYE),
+            Map.entry("orange", Items.ORANGE_DYE),
+            Map.entry("yellow", Items.YELLOW_DYE),
+            Map.entry("lime", Items.LIME_DYE),
+            Map.entry("green", Items.GREEN_DYE),
+            Map.entry("cyan", Items.CYAN_DYE),
+            Map.entry("light_blue", Items.LIGHT_BLUE_DYE),
+            Map.entry("blue", Items.BLUE_DYE),
+            Map.entry("purple", Items.PURPLE_DYE),
+            Map.entry("magenta", Items.MAGENTA_DYE),
+            Map.entry("pink", Items.PINK_DYE)
+    );
+
 
     @Override
-    protected void buildRecipes(RecipeOutput recipeOutput) {
+    protected void buildRecipes (RecipeOutput recipeOutput) {
         LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
 
         SimpleCookingRecipeBuilder.blasting(
@@ -119,7 +160,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     }
 
-    private void hats(RecipeOutput recipeOutput) {
+    private void hats (RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.CROWN)
                 .define('L', Items.GOLD_INGOT)
                 .define('#', Items.DIAMOND)
@@ -205,7 +246,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("F  ")
                 .pattern("###")
                 .unlockedBy("has_black_wool", has(Items.BLACK_WOOL))
-            .save(recipeOutput);
+                .save(recipeOutput);
+
+        hatColors.forEach((colorName, woolItem) -> {
+            Item hatItem = ModItems.ITEMS.getEntries().stream()
+                    .filter(entry -> entry.getId().getPath().equals("christmas_" + colorName + "_hat"))
+                    .findFirst()
+                    .map(net.minecraft.core.Holder::value)
+                    .orElseThrow();
+
+            String hatName = "christmas_" + colorName + "_hat";
+            Item dyeItem = colorToDye.get(colorName);
+
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, hatItem)
+                    .define('#', Items.WHITE_WOOL)
+                    .define('F', woolItem)
+                    .pattern("#  ")
+                    .pattern("FFF")
+                    .pattern("###")
+                    .unlockedBy("has_" + colorName + "_wool", has(woolItem))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("createforever", hatName));
+
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, hatItem)
+                    .requires(ModTags.Items.CHRISTMAS_HATS)
+                    .requires(dyeItem)
+                    .unlockedBy("has_" + colorName + "_dye", has(dyeItem))
+                    .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("createforever", hatName + "_from_dyeing"));
+        });
     }
 
 }
