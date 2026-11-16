@@ -75,7 +75,18 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
             public boolean shouldShowName() {
                 return false;
             }
+
+            @Override
+            public Component getName() {
+                return Component.empty();
+            }
+
+            @Override
+            public Component getDisplayName() {
+                return Component.empty();
+            }
         };
+        previewPlayer.setCustomNameVisible(false);
         previewPlayer.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
     }
 
@@ -121,10 +132,6 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     protected void renderLabels(@NotNull GuiGraphics graphics, int mouseX, int mouseY) {
         // Dark gray (0x404040) without shadow for crisp readability on #c6c6c6 panels
         graphics.drawString(font, title, 8, titleLabelY, LABEL_COLOR, false);
-
-        Component previewTitle = Component.translatable("screen.createforever.sewing_machine.preview");
-        int previewTitleX = PREVIEW_X + (PREVIEW_WIDTH - font.width(previewTitle)) / 2;
-        graphics.drawString(font, previewTitle, previewTitleX, titleLabelY, LABEL_COLOR, false);
 
         graphics.drawString(font, Component.translatable("screen.createforever.sewing_machine.ingredients"),
                 RECIPE_X, titleLabelY, LABEL_COLOR, false);
