@@ -20,6 +20,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.CONCRETE_POWDER.get());
         dropSelf(ModBlocks.CONCRETE.get());
         dropSelf(ModBlocks.ENRICHED_TUFF.get());
+        dropSelf(ModBlocks.SEWING_TABLE.get());
     }
 
     @Override

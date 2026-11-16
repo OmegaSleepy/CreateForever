@@ -24,6 +24,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.CONCRETE.get())
                 .add(ModBlocks.ENRICHED_TUFF.get());
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.SEWING_TABLE.get());
     }
 
 }
