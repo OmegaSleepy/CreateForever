@@ -60,7 +60,6 @@
   "item.createforever.spades_queen":"Spades Queen",
   "item.createforever.spades_king":"Spades King",
 
-  "screen.createforever.sewing_machine.preview": "Preview",
   "screen.createforever.sewing_machine.ingredients": "Ingredients",
   "screen.createforever.sewing_machine.no_recipe": "No sewing recipe",
   "screen.createforever.sewing_machine.tag_ingredient": "Any matching item",
@@ -74,7 +73,7 @@
 
   "tab.createforver.hats": "Hats",
 
-  "item.createforever.capela":"Staw Hat",
+  "item.createforever.capela":"Straw Hat",
   "item.createforever.crown":"Golden Crown",
   "item.createforever.cook":"Chef Hat",
   "item.createforever.mask_pumpkin":"Pumpkin Mask",
@@ -83,7 +82,7 @@
   "item.createforever.chef":"Top Hat",
   "item.createforever.witch":"Witch Hat",
   "item.createforever.cat_ears":"Cat Ears",
-  "item.createforever.baret":"Baret",
+  "item.createforever.baret":"Beret",
 
   "item.createforever.christmas_white_hat": "White Christmas Hat",
   "item.createforever.christmas_orange_hat": "Orange Christmas Hat",
