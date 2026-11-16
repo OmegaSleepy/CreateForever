@@ -15,6 +15,14 @@ repositories {
     exclusiveContent {
         forRepository {
             maven {
+                name = "Progwml6's maven"
+                url = "https://dvs1.progwml6.com/files/maven/"
+            }
+            maven {
+                name = "ModMaven"
+                url = "https://modmaven.dev"
+            }
+            maven {
                 name = "Modrinth"
                 url = "https://api.modrinth.com/maven"
             }
@@ -117,6 +125,11 @@ dependencies {
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     runtimeOnly("maven.modrinth:u6dRKJwZ:Tbomhybz")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    compileOnly("mezz.jei:jei-1.21.1-common-api:${jei_version}")
+    compileOnly("mezz.jei:jei-1.21.1-neoforge-api:${jei_version}")
+
+    runtimeOnly("mezz.jei:jei-1.21.1-neoforge:${jei_version}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

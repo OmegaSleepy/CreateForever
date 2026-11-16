@@ -81,6 +81,7 @@ public final class SewingRecipeProvider {
 
         add(output, "antler", ModItems.DEER_ANTLERS.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK));
         add(output, "antler_rodolph", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK, Items.RED_WOOL));
+        add(output, "antler_rodolph_alternative", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(ModItems.DEER_ANTLERS.get(), Items.RED_WOOL));
         add(output, "elf_hat", ModItems.ELF_HAT.get(), ingredients(Items.RED_WOOL, Items.GREEN_WOOL, Items.BELL, Items.RED_WOOL));
 
         for (Map.Entry<String, Item> entry : COLOR_WOOL.entrySet()) {
@@ -95,7 +96,7 @@ public final class SewingRecipeProvider {
             add(output, itemName, hat, repeated(Items.WHITE_WOOL, 4,
                     entry.getValue(), entry.getValue(), entry.getValue()));
             add(output, itemName + "_from_dyeing", hat,
-                    Ingredient.of(ModTags.Items.CHRISTMAS_HATS),
+                    Ingredient.of(ModTags.Items.CHRISTMAS_HATS_DYEABLE),
                     Ingredient.of(COLOR_DYE.get(color)));
         }
     }

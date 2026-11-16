@@ -404,20 +404,23 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     }
 
     private void appendGroupRows(List<ListRow> rows, TagGroup group, int depth, Set<Item> displayedItems) {
+        Set<Item> childItems = new HashSet<>();
+
         for (TagGroup child : group.children) {
             rows.add(ListRow.tag(child.tag, depth + 1));
+
+            childItems.addAll(child.items);
+
             if (expandedTags.getOrDefault(child.tag, true)) {
                 appendGroupRows(rows, child, depth + 1, displayedItems);
             }
         }
 
         group.items.stream()
-                .filter(item -> !displayedItems.contains(item))
+                .filter(item -> !childItems.contains(item))
+                .filter(displayedItems::add)
                 .sorted(Comparator.comparing(item -> BuiltInRegistries.ITEM.getKey(item).toString()))
-                .forEach(item -> {
-                    rows.add(ListRow.item(item, depth + 1));
-                    displayedItems.add(item);
-                });
+                .forEach(item -> rows.add(ListRow.item(item, depth + 1)));
     }
 
     private int maxScrollRows() {

@@ -82,3 +82,11 @@ type = "optional"
 versionRange = "[1.5.6,)"
 ordering = "AFTER"
 side = "SERVER"
+
+# Dependency for JEI
+[[dependencies."${mod_id}"]]
+modId = "jei"
+type = "optional"
+versionRange = "[19.0,)"
+ordering = "AFTER"
+side = "BOTH"
