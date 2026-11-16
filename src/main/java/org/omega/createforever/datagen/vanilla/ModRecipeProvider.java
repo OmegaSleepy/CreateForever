@@ -13,6 +13,7 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.datagen.create.LocometalRecipeProvider;
+import org.omega.createforever.datagen.forever.SewingRecipeProvider;
 import org.omega.createforever.items.ModItems;
 import org.omega.createforever.util.ModTags;
 
@@ -95,6 +96,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes (RecipeOutput recipeOutput) {
         LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
+        SewingRecipeProvider.buildRecipes(recipeOutput);
 
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(Items.TUFF),
