@@ -4,15 +4,16 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.resources.PlayerSkin;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.items.custom.BaseHatItem;
+import org.omega.createforever.menus.ModMenus;
 
 @EventBusSubscriber(modid = CreateForever.MODID, value = Dist.CLIENT)
 public class ClientEvents {
@@ -39,5 +40,10 @@ public class ClientEvents {
         if (armorStandRenderer instanceof LivingEntityRenderer livingRenderer) {
             livingRenderer.addLayer(new CustomHatLayer(livingRenderer));
         }
+    }
+
+    @SubscribeEvent
+    public static void registerMenuScreens(RegisterMenuScreensEvent event) {
+        event.register(ModMenus.SEWING_MACHINE.get(), SewingTableScreen::new);
     }
 }
