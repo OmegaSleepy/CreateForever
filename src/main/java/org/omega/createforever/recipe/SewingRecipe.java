@@ -51,6 +51,11 @@ public final class SewingRecipe implements CraftingRecipe {
         return result.copy();
     }
 
+    public ItemStack getResult() {
+        return result.copy();
+    }
+
+
     @Override
     public CraftingBookCategory category() {
         return CraftingBookCategory.MISC;

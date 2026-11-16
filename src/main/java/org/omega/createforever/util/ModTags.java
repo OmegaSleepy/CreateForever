@@ -21,6 +21,7 @@ public class ModTags {
 
         public static final TagKey<Item> LEGACY_HATS = createTag("legacy_hats");
         public static final TagKey<Item> CHRISTMAS_HATS = createTag("christmas_hats");
+        public static final TagKey<Item> CHRISTMAS_HATS_DYEABLE = createTag("christmas_hats_dyeable");
         public static final TagKey<Item> HALLOWEEN_HATS = createTag("halloween_hats");
         public static final TagKey<Item> CASUAL_HATS = createTag("casual_hats");
 

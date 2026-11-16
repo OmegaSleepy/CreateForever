@@ -20,7 +20,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags (HolderLookup.Provider provider) {
-        tag(ModTags.Items.CHRISTMAS_HATS)
+        tag(ModTags.Items.CHRISTMAS_HATS_DYEABLE)
                 .add(ModItems.WHITE_CHRISTMAS_HAT.get())
                 .add(ModItems.ORANGE_CHRISTMAS_HAT.get())
                 .add(ModItems.MAGENTA_CHRISTMAS_HAT.get())
@@ -36,12 +36,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BROWN_CHRISTMAS_HAT.get())
                 .add(ModItems.GREEN_CHRISTMAS_HAT.get())
                 .add(ModItems.RED_CHRISTMAS_HAT.get())
-                .add(ModItems.BLACK_CHRISTMAS_HAT.get())
+                .add(ModItems.BLACK_CHRISTMAS_HAT.get());
+        tag(ModTags.Items.CHRISTMAS_HATS)
                 .add(ModItems.DEER_ANTLERS.get())
                 .add(ModItems.DEER_ANTLERS_RUDOLPH.get())
                 .add(ModItems.ELF_HAT.get())
+                .addTag(ModTags.Items.CHRISTMAS_HATS_DYEABLE)
         ;
-
         tag(ModTags.Items.LEGACY_HATS)
                 .add(ModItems.CAPELA.get())
                 .add(ModItems.COOK.get())

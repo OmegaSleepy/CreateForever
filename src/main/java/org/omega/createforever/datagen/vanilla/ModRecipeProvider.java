@@ -98,6 +98,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
         SewingRecipeProvider.buildRecipes(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.SEWING_TABLE, 1)
+                .pattern("!")
+                .pattern("@")
+                .define('!', Items.LOOM)
+                .define('@', Items.CRAFTING_TABLE)
+                .unlockedBy("has_loom", has(Items.LOOM))
+                .save(recipeOutput);
+
+
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(Items.TUFF),
                         RecipeCategory.BUILDING_BLOCKS, // or RecipeCategory.MISC / BLOCKS
@@ -270,7 +279,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("createforever", hatName));
 
             ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, hatItem)
-                    .requires(ModTags.Items.CHRISTMAS_HATS)
+                    .requires(ModTags.Items.CHRISTMAS_HATS_DYEABLE)
                     .requires(dyeItem)
                     .unlockedBy("has_" + colorName + "_dye", has(dyeItem))
                     .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("createforever", hatName + "_from_dyeing"));
