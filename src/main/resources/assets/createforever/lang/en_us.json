@@ -60,6 +60,18 @@
   "item.createforever.spades_queen":"Spades Queen",
   "item.createforever.spades_king":"Spades King",
 
+  "screen.createforever.sewing_machine.preview": "Preview",
+  "screen.createforever.sewing_machine.ingredients": "Ingredients",
+  "screen.createforever.sewing_machine.no_recipe": "No sewing recipe",
+  "screen.createforever.sewing_machine.tag_ingredient": "Any matching item",
+  "screen.createforever.sewing_machine.sew": "Sew",
+
+  "tag.createforever.craftable_hats": "Craftable Hats",
+  "tag.createforever.christmas_hats": "Christmas Hats",
+  "tag.createforever.legacy_hats": "Classic Hats",
+  "tag.createforever.halloween_hats": "Halloween Hats",
+  "tag.createforever.casual_hats": "Casual Hats",
+
   "tab.createforver.hats": "Hats",
 
   "item.createforever.capela":"Staw Hat",
@@ -88,5 +100,6 @@
   "item.createforever.christmas_brown_hat": "Brown Christmas Hat",
   "item.createforever.christmas_green_hat": "Green Christmas Hat",
   "item.createforever.christmas_red_hat": "Red Christmas Hat",
-  "item.createforever.christmas_black_hat": "Black Christmas Hat"
+  "item.createforever.christmas_black_hat": "Black Christmas Hat",
+  "screen.createforever.sewing_machine.search": "Search..."
 }
