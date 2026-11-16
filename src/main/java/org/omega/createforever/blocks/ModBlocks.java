@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.omega.createforever.blocks.custom.SewingTableBlock;
 import org.omega.createforever.items.ModItems;
 
 import java.util.function.Supplier;
@@ -40,7 +41,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> SEWING_TABLE =
             registerBlock("sewing_table",
-                    () -> new Block(
+                    () -> new SewingTableBlock(
                             BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE)
                     ));
 
