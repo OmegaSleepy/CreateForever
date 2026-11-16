@@ -18,8 +18,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.CONCRETE_POWDER);
         blockWithItem(ModBlocks.CONCRETE);
         blockWithItem(ModBlocks.ENRICHED_TUFF);
-        simpleBlockWithItem(ModBlocks.SEWING_TABLE.get(),
-                models().cubeAll("sewing_machine", ResourceLocation.withDefaultNamespace("block/loom_side")));
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

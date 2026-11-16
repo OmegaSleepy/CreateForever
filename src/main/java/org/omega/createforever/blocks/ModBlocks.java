@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ConcretePowderBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -42,7 +43,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> SEWING_TABLE =
             registerBlock("sewing_table",
                     () -> new SewingTableBlock(
-                            BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE)
+                            BlockBehaviour.Properties.of()
+                                    .strength(2.5F)
+                                    .sound(SoundType.WOOD)
+                                    .noOcclusion()
                     ));
 
 
