@@ -59,6 +59,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     private EditBox searchBox;
     private ItemStack hoveredTooltipStack = ItemStack.EMPTY;
 
+    // Scrolling text tracker state per line/row identifier or index
     private final Map<String, ScrollingTextState> scrollingTextStates = new HashMap<>();
 
     public SewingTableScreen (SewingTableMenu menu, Inventory inventory, Component title) {
@@ -174,6 +175,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
                 String cacheKey = "list_" + rowIndex;
                 renderScrollingText(graphics, row.name.getString(), x + 20, y + 5, maxTextWidth, LIGHT_TEXT_COLOR, true, hovered, cacheKey);
             } else {
+                // Subtle category header strip
                 graphics.fill(leftPos + LIST_X, y, leftPos + LIST_X + contentWidth, y + ROW_HEIGHT, 0x44000000);
                 boolean expanded = expandedTags.getOrDefault(row.tag, false);
                 graphics.drawString(font, expanded ? "▾" : "▸", x, y + 5, MUTED_TEXT_COLOR, true);
@@ -275,7 +277,6 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
         int bgColor = !canCraft ? 0xFF555555 : (hovered ? 0xFF6B8050 : 0xFF53683B);
         graphics.fill(buttonX, buttonY, buttonX + buttonW, buttonY + buttonH, bgColor);
-        // Beveled button border
         graphics.fill(buttonX, buttonY, buttonX + buttonW, buttonY + 1, canCraft ? 0x99FFFFFF : 0x44FFFFFF);
         graphics.fill(buttonX, buttonY, buttonX + 1, buttonY + buttonH, canCraft ? 0x99FFFFFF : 0x44FFFFFF);
         graphics.fill(buttonX, buttonY + buttonH - 1, buttonX + buttonW, buttonY + buttonH, 0xFF000000);
@@ -295,21 +296,34 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         }
 
         ScrollingTextState state = scrollingTextStates.computeIfAbsent(cacheKey, k -> new ScrollingTextState());
+        int overflow = textWidth - maxWidth;
 
         if (!hovered) {
             state.tickCount++;
             if (state.tickCount >= 20) {
-                state.scrollProgress++;
                 state.tickCount = 0;
-                int overflow = textWidth - maxWidth;
-                if (state.scrollProgress > overflow + 15) {
-                    state.scrollProgress = -10;
+
+                if (state.pauseTimer > 0) {
+                    state.pauseTimer--;
+                } else {
+                    state.scrollProgress += state.scrollDirection;
+
+                    if (state.scrollProgress >= overflow) {
+                        state.scrollProgress = overflow;
+                        state.scrollDirection = -1;
+                        state.pauseTimer = 15;
+                    }
+                    else if (state.scrollProgress <= 0) {
+                        state.scrollProgress = 0;
+                        state.scrollDirection = 1;
+                        state.pauseTimer = 15;
+                    }
                 }
             }
         }
 
         graphics.enableScissor(x, y, x + maxWidth, y + font.lineHeight);
-        int renderX = x - Math.max(0, state.scrollProgress);
+        int renderX = x - state.scrollProgress;
         graphics.drawString(font, text, renderX, y, color, dropShadow);
         graphics.disableScissor();
     }
@@ -536,8 +550,10 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     }
 
     private static class ScrollingTextState {
-        private int scrollProgress = -15;
+        private int scrollProgress = 0;
+        private int scrollDirection = 1; // 1 for right/forward, -1 for left/reverse
         private int tickCount = 0;
+        private int pauseTimer = 15;     // Pause briefly at each end before reversing
     }
 
     private record ListRow(TagKey<Item> tag, Item item, Component name, int depth) {
