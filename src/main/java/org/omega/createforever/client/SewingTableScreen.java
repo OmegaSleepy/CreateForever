@@ -130,7 +130,6 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
     @Override
     protected void renderLabels(@NotNull GuiGraphics graphics, int mouseX, int mouseY) {
-        // Dark gray (0x404040) without shadow for crisp readability on #c6c6c6 panels
         graphics.drawString(font, title, 8, titleLabelY, LABEL_COLOR, false);
 
         graphics.drawString(font, Component.translatable("screen.createforever.sewing_machine.ingredients"),
@@ -193,6 +192,13 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
             graphics.fill(barX, thumbY, barX + 5, thumbY + thumbHeight, 0xFFC6C6C6);
             graphics.fill(barX + 4, thumbY, barX + 5, thumbY + thumbHeight, 0xFF555555);
             graphics.fill(barX, thumbY, barX + 4, thumbY + 1, 0xFFFFFFFF);
+
+            int startY = thumbY + (thumbHeight - 5) / 2;
+            for (int i = 0; i < 3; i++) {
+                int lineY = startY + i * 2;
+                graphics.fill(barX + 1, lineY, barX + 4, lineY + 1, 0xFF555555);
+                graphics.fill(barX + 1, lineY + 1, barX + 4, lineY + 2, 0xFFFFFFFF);
+            }
         }
     }
 
