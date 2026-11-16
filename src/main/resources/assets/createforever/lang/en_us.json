@@ -67,12 +67,12 @@
   "screen.createforever.sewing_machine.search": "Search...",
   "recipe.category.createforever.sewing": "Sewing",
 
-  "tag.createforever.craftable_hats": "Craftable Hats",
-  "tag.createforever.christmas_hats": "Christmas Hats",
-  "tag.createforever.christmas_hats_dyeable": "Colorful Christmas Hats",
-  "tag.createforever.legacy_hats": "Classic Hats",
-  "tag.createforever.halloween_hats": "Halloween Hats",
-  "tag.createforever.casual_hats": "Casual Hats",
+  "tag.createforever.craftable_hats": "Craftable",
+  "tag.createforever.christmas_hats": "Christmas",
+  "tag.createforever.christmas_hats_dyeable": "Colorful Christmas",
+  "tag.createforever.legacy_hats": "Legacy",
+  "tag.createforever.halloween_hats": "Halloween",
+  "tag.createforever.casual_hats": "Casual",
 
   "tab.createforver.hats": "Hats",
 
