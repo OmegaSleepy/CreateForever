@@ -59,6 +59,8 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     private EditBox searchBox;
     private ItemStack hoveredTooltipStack = ItemStack.EMPTY;
 
+    private final Map<String, ScrollingTextState> scrollingTextStates = new HashMap<>();
+
     public SewingTableScreen (SewingTableMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         imageWidth = 370;
@@ -169,16 +171,15 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
                     hoveredTooltipStack = stack;
                 }
                 int maxTextWidth = contentWidth - (x - (leftPos + LIST_X)) - 22;
-                graphics.drawString(font, fitText(row.name, maxTextWidth),
-                        x + 20, y + 5, LIGHT_TEXT_COLOR, true);
+                String cacheKey = "list_" + rowIndex;
+                renderScrollingText(graphics, row.name.getString(), x + 20, y + 5, maxTextWidth, LIGHT_TEXT_COLOR, true, hovered, cacheKey);
             } else {
-                // Subtle category header strip
                 graphics.fill(leftPos + LIST_X, y, leftPos + LIST_X + contentWidth, y + ROW_HEIGHT, 0x44000000);
                 boolean expanded = expandedTags.getOrDefault(row.tag, false);
                 graphics.drawString(font, expanded ? "▾" : "▸", x, y + 5, MUTED_TEXT_COLOR, true);
                 int maxTextWidth = contentWidth - (x - (leftPos + LIST_X)) - 14;
-                graphics.drawString(font, fitText(row.name, maxTextWidth),
-                        x + 10, y + 5, LIGHT_TEXT_COLOR, true);
+                String cacheKey = "list_tag_" + rowIndex;
+                renderScrollingText(graphics, row.name.getString(), x + 10, y + 5, maxTextWidth, LIGHT_TEXT_COLOR, true, hovered, cacheKey);
             }
         }
         graphics.disableScissor();
@@ -230,6 +231,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         }
 
         int y = topPos + 31;
+        int lineIndex = 0;
         for (IngredientLine line : ingredientLines(recipe)) {
             int rowLeft = leftPos + RECIPE_X + 2;
             boolean hovered = mouseX >= rowLeft && mouseX < leftPos + RECIPE_X + RECIPE_WIDTH - 2
@@ -241,21 +243,28 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
             }
 
             graphics.renderItem(line.displayStack, rowLeft + 1, y + 1);
-            Component label = line.count > 1
-                    ? Component.literal(line.name.getString() + " x" + line.count)
-                    : line.name;
+
+            if (line.count > 1) {
+                graphics.renderItemDecorations(font, line.displayStack, rowLeft + 1, y + 1, String.valueOf(line.count));
+            }
+
+            String fullText = line.count > 1
+                    ? "x" + line.count + " " + line.name.getString()
+                    : line.name.getString();
+
             boolean missing = menu.countMatchingItems(line.ingredient) < line.count;
-            graphics.drawString(font, fitText(label, RECIPE_WIDTH - 26),
-                    rowLeft + 21, y + 5, missing ? MISSING_TEXT_COLOR : AVAILABLE_TEXT_COLOR, true);
+            int maxTextWidth = RECIPE_WIDTH - 26;
+            String cacheKey = "recipe_" + lineIndex;
+            renderScrollingText(graphics, fullText, rowLeft + 21, y + 5, maxTextWidth, missing ? MISSING_TEXT_COLOR : AVAILABLE_TEXT_COLOR, true, hovered, cacheKey);
 
             y += 20;
+            lineIndex++;
             if (y > topPos + 165) {
                 graphics.drawString(font, "...", rowLeft + 4, y - 2, MUTED_TEXT_COLOR, true);
                 break;
             }
         }
 
-        // Render Sew button (enabled green or disabled dark gray)
         int buttonX = leftPos + RECIPE_X - 1;
         int buttonY = topPos + 190;
         int buttonW = RECIPE_WIDTH + 2;
@@ -275,6 +284,34 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         graphics.drawCenteredString(font,
                 Component.translatable("screen.createforever.sewing_machine.sew"),
                 buttonX + buttonW / 2, buttonY + 7, canCraft ? LIGHT_TEXT_COLOR : MUTED_TEXT_COLOR);
+    }
+
+    private void renderScrollingText(GuiGraphics graphics, String text, int x, int y, int maxWidth, int color, boolean dropShadow, boolean hovered, String cacheKey) {
+        int textWidth = font.width(text);
+        if (textWidth <= maxWidth) {
+            graphics.drawString(font, text, x, y, color, dropShadow);
+            scrollingTextStates.remove(cacheKey);
+            return;
+        }
+
+        ScrollingTextState state = scrollingTextStates.computeIfAbsent(cacheKey, k -> new ScrollingTextState());
+
+        if (!hovered) {
+            state.tickCount++;
+            if (state.tickCount >= 20) {
+                state.scrollProgress++;
+                state.tickCount = 0;
+                int overflow = textWidth - maxWidth;
+                if (state.scrollProgress > overflow + 15) {
+                    state.scrollProgress = -10;
+                }
+            }
+        }
+
+        graphics.enableScissor(x, y, x + maxWidth, y + font.lineHeight);
+        int renderX = x - Math.max(0, state.scrollProgress);
+        graphics.drawString(font, text, renderX, y, color, dropShadow);
+        graphics.disableScissor();
     }
 
     private void rebuildRows() {
@@ -428,17 +465,6 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         return Math.max(0, visibleRows.size() - rowsInView);
     }
 
-    private Component fitText(Component component, int maxWidth) {
-        String text = component.getString();
-        if (font.width(text) <= maxWidth) {
-            return component;
-        }
-        while (!text.isEmpty() && font.width(text + "...") > maxWidth) {
-            text = text.substring(0, text.length() - 1);
-        }
-        return Component.literal(text + "...");
-    }
-
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 0 && isInside(mouseX, mouseY, LIST_X, LIST_TOP, LIST_WIDTH, LIST_BOTTOM - LIST_TOP)) {
@@ -507,6 +533,11 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     @Override
     public boolean isPauseScreen() {
         return false;
+    }
+
+    private static class ScrollingTextState {
+        private int scrollProgress = -15;
+        private int tickCount = 0;
     }
 
     private record ListRow(TagKey<Item> tag, Item item, Component name, int depth) {
