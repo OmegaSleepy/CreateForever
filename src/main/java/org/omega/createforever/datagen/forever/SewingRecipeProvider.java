@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.items.ModItems;
 import org.omega.createforever.recipe.SewingRecipe;
@@ -80,6 +81,7 @@ public final class SewingRecipeProvider {
 
         add(output, "antler", ModItems.DEER_ANTLERS.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK));
         add(output, "antler_rodolph", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK, Items.RED_WOOL));
+        add(output, "elf_hat", ModItems.ELF_HAT.get(), ingredients(Items.RED_WOOL, Items.GREEN_WOOL, Items.BELL, Items.RED_WOOL));
 
         for (Map.Entry<String, Item> entry : COLOR_WOOL.entrySet()) {
             String color = entry.getKey();

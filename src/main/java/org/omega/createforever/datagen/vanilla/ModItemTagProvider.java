@@ -39,6 +39,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.BLACK_CHRISTMAS_HAT.get())
                 .add(ModItems.DEER_ANTLERS.get())
                 .add(ModItems.DEER_ANTLERS_RUDOLPH.get())
+                .add(ModItems.ELF_HAT.get())
         ;
 
         tag(ModTags.Items.LEGACY_HATS)

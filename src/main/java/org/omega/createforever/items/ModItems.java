@@ -59,6 +59,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> DEER_ANTLERS = ITEMS.register("deer_antlers", HatItem::new);
     public static final DeferredItem<Item> DEER_ANTLERS_RUDOLPH = ITEMS.register("deer_antlers_rudolph", HatItem::new);
+    public static final DeferredItem<Item> ELF_HAT = ITEMS.register("elf_hat", HatItem::new);
 
     public static void init (IEventBus modEventBus) {
         ITEMS.register(modEventBus);
