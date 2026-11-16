@@ -12,6 +12,7 @@ import org.omega.createforever.items.ModItems;
 import org.omega.createforever.recipe.SewingRecipe;
 import org.omega.createforever.util.ModTags;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -111,6 +112,10 @@ public final class SewingRecipeProvider {
 
     private static Ingredient[] repeated(Item item, int count, Item second, Item third) {
         return repeated(item, count, new Item[]{second, third});
+    }
+
+    private static Ingredient[] ingredients(Item... items) {
+        return Arrays.stream(items).map(Ingredient::of).toArray(Ingredient[]::new);
     }
 
     private static void add(RecipeOutput output, String name, Item result, Ingredient... ingredients) {
