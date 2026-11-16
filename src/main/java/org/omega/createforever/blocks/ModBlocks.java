@@ -38,6 +38,12 @@ public class ModBlocks {
                 )
             );
 
+    public static final DeferredBlock<Block> SEWING_TABLE =
+            registerBlock("sewing_table",
+                    () -> new Block(
+                            BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE)
+                    ));
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
