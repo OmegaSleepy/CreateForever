@@ -1,0 +1,127 @@
+{
+  "credit": "Made with Blockbench",
+  "textures": {
+    "antler": "minecraft:block/dark_oak_planks",
+    "particle": "minecraft:block/dark_oak_planks"
+  },
+  "elements": [
+    {
+      "name": "left_base",
+      "from": [10, 8, 7],
+      "to": [11.5, 11, 8.5],
+      "rotation": {"angle": -22.5, "axis": "z", "origin": [10, 8, 7.5]},
+      "faces": {
+        "north": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "east": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "south": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "west": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "up": {"uv": [0, 0, 1.5, 1.5], "texture": "#antler"},
+        "down": {"uv": [0, 0, 1.5, 1.5], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "left_main_beam",
+      "from": [11, 10.5, 7],
+      "to": [12.5, 16, 8.5],
+      "rotation": {"angle": 0, "axis": "y", "origin": [11, 10.5, 7]},
+      "faces": {
+        "north": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "east": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "south": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "west": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "up": {"uv": [2, 0, 3.5, 1.5], "texture": "#antler"},
+        "down": {"uv": [2, 0, 3.5, 1.5], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "left_front_tine",
+      "from": [11.2, 11.5, 4.5],
+      "to": [12.2, 12.5, 7.5],
+      "rotation": {"angle": 22.5, "axis": "x", "origin": [11.7, 12, 7.5]},
+      "faces": {
+        "north": {"uv": [4, 0, 5, 1], "texture": "#antler"},
+        "east": {"uv": [4, 0, 7, 1], "texture": "#antler"},
+        "south": {"uv": [4, 0, 5, 1], "texture": "#antler"},
+        "west": {"uv": [4, 0, 7, 1], "texture": "#antler"},
+        "up": {"uv": [4, 0, 5, 3], "texture": "#antler"},
+        "down": {"uv": [4, 0, 5, 3], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "left_upper_tine",
+      "from": [9.5, 13.5, 7.2],
+      "to": [11.5, 14.5, 8.2],
+      "rotation": {"angle": -22.5, "axis": "z", "origin": [11.5, 14, 7.7]},
+      "faces": {
+        "north": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "east": {"uv": [6, 2, 7, 3], "texture": "#antler"},
+        "south": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "west": {"uv": [6, 2, 7, 3], "texture": "#antler"},
+        "up": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "down": {"uv": [6, 2, 8, 3], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "right_base",
+      "from": [4.5, 8, 7],
+      "to": [6, 11, 8.5],
+      "rotation": {"angle": 22.5, "axis": "z", "origin": [6, 8, 7.5]},
+      "faces": {
+        "north": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "east": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "south": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "west": {"uv": [0, 0, 1.5, 3], "texture": "#antler"},
+        "up": {"uv": [0, 0, 1.5, 1.5], "texture": "#antler"},
+        "down": {"uv": [0, 0, 1.5, 1.5], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "right_main_beam",
+      "from": [3.5, 10.5, 7],
+      "to": [5, 16, 8.5],
+      "rotation": {"angle": 0, "axis": "y", "origin": [5, 10.5, 7]},
+      "faces": {
+        "north": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "east": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "south": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "west": {"uv": [2, 0, 3.5, 5.5], "texture": "#antler"},
+        "up": {"uv": [2, 0, 3.5, 1.5], "texture": "#antler"},
+        "down": {"uv": [2, 0, 3.5, 1.5], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "right_front_tine",
+      "from": [3.8, 11.5, 4.5],
+      "to": [4.8, 12.5, 7.5],
+      "rotation": {"angle": 22.5, "axis": "x", "origin": [4.3, 12, 7.5]},
+      "faces": {
+        "north": {"uv": [4, 0, 5, 1], "texture": "#antler"},
+        "east": {"uv": [4, 0, 7, 1], "texture": "#antler"},
+        "south": {"uv": [4, 0, 5, 1], "texture": "#antler"},
+        "west": {"uv": [4, 0, 7, 1], "texture": "#antler"},
+        "up": {"uv": [4, 0, 5, 3], "texture": "#antler"},
+        "down": {"uv": [4, 0, 5, 3], "texture": "#antler"}
+      }
+    },
+    {
+      "name": "right_upper_tine",
+      "from": [4.5, 13.5, 7.2],
+      "to": [6.5, 14.5, 8.2],
+      "rotation": {"angle": 22.5, "axis": "z", "origin": [4.5, 14, 7.7]},
+      "faces": {
+        "north": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "east": {"uv": [6, 2, 7, 3], "texture": "#antler"},
+        "south": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "west": {"uv": [6, 2, 7, 3], "texture": "#antler"},
+        "up": {"uv": [6, 2, 8, 3], "texture": "#antler"},
+        "down": {"uv": [6, 2, 8, 3], "texture": "#antler"}
+      }
+    }
+  ],
+  "display": {
+    "head": {
+      "translation": [0, 6.5, 0],
+      "scale": [1.6, 1.6, 1.6]
+    }
+  }
+}

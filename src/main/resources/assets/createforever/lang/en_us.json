@@ -64,6 +64,7 @@
   "screen.createforever.sewing_machine.no_recipe": "No sewing recipe",
   "screen.createforever.sewing_machine.tag_ingredient": "Any matching item",
   "screen.createforever.sewing_machine.sew": "Sew",
+  "screen.createforever.sewing_machine.search": "Search...",
 
   "tag.createforever.craftable_hats": "Craftable Hats",
   "tag.createforever.christmas_hats": "Christmas Hats",
@@ -100,5 +101,7 @@
   "item.createforever.christmas_green_hat": "Green Christmas Hat",
   "item.createforever.christmas_red_hat": "Red Christmas Hat",
   "item.createforever.christmas_black_hat": "Black Christmas Hat",
-  "screen.createforever.sewing_machine.search": "Search..."
+  "item.createforever.deer_antlers": "Deer Antlers",
+  "item.createforever.deer_antlers_rudolph": "Rudolph Antlers"
+
 }

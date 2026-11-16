@@ -61,6 +61,7 @@
   "screen.createforever.sewing_machine.no_recipe": "Няма рецепта за шиене",
   "screen.createforever.sewing_machine.tag_ingredient": "Няма такъв предмет",
   "screen.createforever.sewing_machine.sew": "Ший",
+  "screen.createforever.sewing_machine.search": "Търси...",
   "tag.createforever.craftable_hats": "Шапки за направа",
   "tag.createforever.christmas_hats": "Коледни шапки",
   "tag.createforever.legacy_hats": "Класически шапки",
@@ -93,5 +94,6 @@
   "item.createforever.christmas_green_hat": "Зелена Коледна Шапка",
   "item.createforever.christmas_red_hat": "Червена Коледна Шапка",
   "item.createforever.christmas_black_hat": "Черна Коледна Шапка",
-  "screen.createforever.sewing_machine.search": "Търси..."
+  "item.createforever.deer_antlers": "Рога на елен",
+  "item.createforever.deer_antlers_rudolph": "Рогата на Рудолф"
 }

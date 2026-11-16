@@ -78,6 +78,9 @@ public final class SewingRecipeProvider {
         add(output, "baret", ModItems.BARET.get(),
                 repeated(Items.BLACK_WOOL, 3, Items.FEATHER));
 
+        add(output, "antler", ModItems.DEER_ANTLERS.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK));
+        add(output, "antler_rodolph", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK, Items.RED_WOOL));
+
         for (Map.Entry<String, Item> entry : COLOR_WOOL.entrySet()) {
             String color = entry.getKey();
             String itemName = "christmas_" + color + "_hat";
