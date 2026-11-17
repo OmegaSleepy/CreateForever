@@ -154,7 +154,9 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
             }
 
             ListRow row = visibleRows.get(rowIndex);
-            int x = leftPos + LIST_X + 3 + row.depth * 10;
+            int indentWidth = row.depth * 4;
+            int x = leftPos + LIST_X + 3 + indentWidth;
+
             boolean hovered = mouseX >= leftPos + LIST_X && mouseX < leftPos + LIST_X + contentWidth
                     && mouseY >= Math.max(y, top) && mouseY < Math.min(y + ROW_HEIGHT, bottom);
 
