@@ -46,7 +46,7 @@ public class SewingTableMenu extends AbstractContainerMenu {
                 .flatMap(tag -> tag.stream().map(Holder::value))
                 .sorted(Comparator.comparing(item -> BuiltInRegistries.ITEM.getKey(item).toString()))
                 .toList();
-        this.data.set(0, craftableHats.isEmpty() ? -1 : 0);
+        this.data.set(0, -1);
         addDataSlots(data);
     }
 

@@ -48,7 +48,10 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     private static final int MISSING_TEXT_COLOR = 0xFF5555;
     private static final int AVAILABLE_TEXT_COLOR = 0x55FF55;
 
-    private final Map<TagKey<Item>, Boolean> expandedTags = new HashMap<>();
+    private static final Map<TagKey<Item>, Boolean> expandedTags = new HashMap<>();
+    private static Item lastPickedHat = null;
+    private boolean restoredLastPickedHat = false;
+
     private final Map<String, Component> ingredientNameCache = new HashMap<>();
     private final Set<Item> craftableHatSet;
     private final TagGroup rootGroup;
@@ -59,10 +62,9 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
     private EditBox searchBox;
     private ItemStack hoveredTooltipStack = ItemStack.EMPTY;
 
-    // Scrolling text tracker state per line/row identifier or index
     private final Map<String, ScrollingTextState> scrollingTextStates = new HashMap<>();
 
-    public SewingTableScreen (SewingTableMenu menu, Inventory inventory, Component title) {
+    public SewingTableScreen(SewingTableMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         imageWidth = 370;
         imageHeight = 220;
@@ -70,8 +72,10 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
         craftableHatSet = new HashSet<>(menu.getCraftableHats());
         rootGroup = createTagTree();
-        expandTags(rootGroup);
 
+        if (expandedTags.isEmpty()) {
+            expandTags(rootGroup);
+        }
         ClientLevel level = Minecraft.getInstance().level;
         previewPlayer = new RemotePlayer(level, Minecraft.getInstance().player.getGameProfile()) {
             @Override
@@ -111,6 +115,18 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
         this.addRenderableWidget(searchBox);
         rebuildRows();
+
+        if (!restoredLastPickedHat && minecraft != null && minecraft.gameMode != null) {
+            restoredLastPickedHat = true;
+            if (lastPickedHat != null && craftableHatSet.contains(lastPickedHat)) {
+                int index = menu.getCraftableHats().indexOf(lastPickedHat);
+                if (index >= 0) {
+                    minecraft.gameMode.handleInventoryButtonClick(menu.containerId, index);
+                }
+            } else if (!menu.getCraftableHats().isEmpty()) {
+                minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 0);
+            }
+        }
     }
 
     @Override
@@ -127,8 +143,11 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         graphics.blit(TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight, 512, 512);
 
         renderHatList(graphics, mouseX, mouseY);
-        renderPreview(graphics, mouseX, mouseY);
-        renderRecipe(graphics, mouseX, mouseY);
+
+        if (menu.getSelectedHat() != null) {
+            renderPreview(graphics, mouseX, mouseY);
+            renderRecipe(graphics, mouseX, mouseY);
+        }
     }
 
     @Override
@@ -139,7 +158,13 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
                 RECIPE_X, titleLabelY, LABEL_COLOR, false);
     }
 
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+    }
+
     private void renderHatList(GuiGraphics graphics, int mouseX, int mouseY) {
+        boolean hasSelectedHat = menu.getSelectedHat() != null;
         int top = topPos + LIST_TOP;
         int bottom = topPos + LIST_BOTTOM;
         boolean hasScrollbar = visibleRows.size() * ROW_HEIGHT > bottom - top;
@@ -160,7 +185,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
             boolean hovered = mouseX >= leftPos + LIST_X && mouseX < leftPos + LIST_X + contentWidth
                     && mouseY >= Math.max(y, top) && mouseY < Math.min(y + ROW_HEIGHT, bottom);
 
-            if (row.item != null && menu.getSelectedHat() == row.item) {
+            if (hasSelectedHat && row.item != null && menu.getSelectedHat() == row.item) {
                 graphics.fill(leftPos + LIST_X, y, leftPos + LIST_X + contentWidth, y + ROW_HEIGHT, 0xFF7A7A7A);
                 graphics.renderOutline(leftPos + LIST_X, y, contentWidth, ROW_HEIGHT, 0xFFFFFFFF);
             } else if (hovered) {
@@ -177,7 +202,6 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
                 String cacheKey = "list_" + rowIndex;
                 renderScrollingText(graphics, row.name.getString(), x + 20, y + 5, maxTextWidth, LIGHT_TEXT_COLOR, true, hovered, cacheKey);
             } else {
-                // Subtle category header strip
                 graphics.fill(leftPos + LIST_X, y, leftPos + LIST_X + contentWidth, y + ROW_HEIGHT, 0x44000000);
                 boolean expanded = expandedTags.getOrDefault(row.tag, false);
                 graphics.drawString(font, expanded ? "▾" : "▸", x, y + 5, MUTED_TEXT_COLOR, true);
@@ -209,8 +233,12 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
     private void renderPreview(GuiGraphics graphics, int mouseX, int mouseY) {
         Item selectedHat = menu.getSelectedHat();
-        previewPlayer.setItemSlot(EquipmentSlot.HEAD,
-                selectedHat == null ? ItemStack.EMPTY : new ItemStack(selectedHat));
+
+        if (selectedHat == null) {
+            return;
+        }
+
+        previewPlayer.setItemSlot(EquipmentSlot.HEAD, new ItemStack(selectedHat));
 
         int boxLeft = leftPos + PREVIEW_X + 2;
         int boxTop = topPos + 28;
@@ -490,6 +518,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
                 if (row.item != null) {
                     int index = menu.getCraftableHats().indexOf(row.item);
                     menu.setSelectedHatIndex(index);
+                    lastPickedHat = row.item;
                     minecraft.gameMode.handleInventoryButtonClick(menu.containerId, index);
                     minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_LOOM_SELECT_PATTERN, 1.0F));
                     return true;
@@ -553,9 +582,9 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
 
     private static class ScrollingTextState {
         private int scrollProgress = 0;
-        private int scrollDirection = 1; // 1 for right/forward, -1 for left/reverse
+        private int scrollDirection = 1;
         private int tickCount = 0;
-        private int pauseTimer = 15;     // Pause briefly at each end before reversing
+        private int pauseTimer = 15;
     }
 
     private record ListRow(TagKey<Item> tag, Item item, Component name, int depth) {
