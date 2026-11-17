@@ -15,7 +15,7 @@ import org.omega.createforever.CreateForever;
 import org.omega.createforever.datagen.create.LocometalWashingRecipeProvider;
 import org.omega.createforever.datagen.create.ModCompactingProvider;
 import org.omega.createforever.datagen.create.ModCrushingProvider;
-import org.omega.createforever.datagen.vanilla.SewingAdvancementProvider;
+import org.omega.createforever.datagen.forever.SewingAdvancementProvider;
 import org.omega.createforever.datagen.vanilla.*;
 
 import java.util.Collections;

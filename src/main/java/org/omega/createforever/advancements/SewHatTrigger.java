@@ -16,7 +16,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.Optional;
 
 public final class SewHatTrigger extends SimpleCriterionTrigger<SewHatTrigger.Instance> {
-    Logger LOGGER = LogManager.getLogger();
     @Override
     public Codec<Instance> codec() {
         return Instance.CODEC;
@@ -24,8 +23,6 @@ public final class SewHatTrigger extends SimpleCriterionTrigger<SewHatTrigger.In
 
     public void trigger(ServerPlayer player, Item hat) {
         ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(hat);
-
-        LOGGER.info("Sewing advancement triggered for: {}", itemId);
 
         trigger(player, instance -> instance.item().equals(itemId));
     }

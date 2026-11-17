@@ -1,4 +1,4 @@
-package org.omega.createforever.datagen.vanilla;
+package org.omega.createforever.datagen.forever;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
@@ -26,13 +26,15 @@ public class SewingAdvancementProvider implements AdvancementGenerator {
     private static final ResourceLocation SPOOL_ADVANCEMENT = id("sewing_spool");
     private static final ResourceLocation STATION_ADVANCEMENT = id("sewing_station");
 
+    private static final ResourceLocation BACKGROUND_TEXTURE = id("textures/gui/advancements/backgrounds/sewing_advancements.png");
+
     @Override
     public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> output,
                          ExistingFileHelper existingFileHelper) {
 
         AdvancementHolder spool = Advancement.Builder.advancement()
                 .display(ModItems.SEWING_SPOOL, title("sewing_spool"), description("sewing_spool"),
-                        null, AdvancementType.TASK, true, true, false)
+                        BACKGROUND_TEXTURE, AdvancementType.TASK, true, true, false)
                 .addCriterion("crafted_spool", RecipeCraftedTrigger.TriggerInstance.craftedItem(id("sewing_spool")))
                 .save(output, SPOOL_ADVANCEMENT.toString());
 
