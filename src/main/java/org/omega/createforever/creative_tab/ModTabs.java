@@ -41,6 +41,8 @@ public class ModTabs {
                         for (BaseHatItem hat : HatItem.getHats()) {
                             output.accept(hat);
                         }
+                        output.accept(ModItems.SEWING_SPOOL.get());
+                        output.accept(ModBlocks.SEWING_TABLE.get());
                     }))
                     .build());
 
