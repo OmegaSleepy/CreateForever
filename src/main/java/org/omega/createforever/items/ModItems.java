@@ -27,6 +27,7 @@ public class ModItems {
     }
 
     public static final DeferredItem<Item> CARD_PACK = ITEMS.register("card_pack", CardPack::new);
+    public static final DeferredItem<Item> SEWING_SPOOL = ITEMS.register("sewing_spool", () -> new Item(new Item.Properties().stacksTo(16)));
 
     public static final DeferredItem<Item> CAPELA = ITEMS.register("capela", HatItem::new);
     public static final DeferredItem<Item> COOK = ITEMS.register("cook", HatItem::new);

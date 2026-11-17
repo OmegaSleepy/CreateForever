@@ -6,6 +6,7 @@ import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.omega.createforever.items.ModItems;
 import org.slf4j.Logger;
 
 import static org.omega.createforever.CreateForever.MODID;
@@ -22,6 +23,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+
+        basicItem(ModItems.SEWING_SPOOL.get());
+
         ModelFile template = getExistingFile(modLoc("item/playing_card"));
 
         for (String suit : SUITS) {

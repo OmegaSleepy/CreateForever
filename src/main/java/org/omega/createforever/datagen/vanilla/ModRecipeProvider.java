@@ -15,7 +15,6 @@ import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.datagen.create.LocometalRecipeProvider;
 import org.omega.createforever.datagen.forever.SewingRecipeProvider;
 import org.omega.createforever.items.ModItems;
-import org.omega.createforever.util.ModTags;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -106,6 +105,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_loom", has(Items.LOOM))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.SEWING_SPOOL, 1)
+                .pattern("!")
+                .pattern("@")
+                .pattern("!")
+                .define('!', Items.STRING)
+                .define('@', Items.STICK)
+                .unlockedBy("has_string", has(Items.STRING))
+                .save(recipeOutput);
 
         SimpleCookingRecipeBuilder.blasting(
                         Ingredient.of(Items.TUFF),
