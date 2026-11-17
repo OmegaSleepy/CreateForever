@@ -20,6 +20,7 @@ import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.recipe.ModRecipeTypes;
 import org.omega.createforever.recipe.SewingRecipe;
 import org.omega.createforever.util.ModTags;
+import org.omega.createforever.util.SewingAdvancements;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -140,8 +141,14 @@ public class SewingTableMenu extends AbstractContainerMenu {
         }
 
         ItemStack result = recipe.getResultItem(player.level().registryAccess()).copy();
+        Item sewnHat = result.getItem();
+
         if (!inventory.add(result)) {
             player.drop(result, false);
+        }
+
+        if (player instanceof ServerPlayer serverPlayer) {
+            SewingAdvancements.onHatSewn(serverPlayer, sewnHat);
         }
 
         inventory.setChanged();

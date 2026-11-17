@@ -9,6 +9,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.omega.createforever.blocks.ModBlocks;
+import org.omega.createforever.advancements.ModCriteriaTriggers;
 import org.omega.createforever.creative_tab.ModTabs;
 import org.omega.createforever.items.ModItems;
 import org.omega.createforever.menus.ModMenus;
@@ -24,6 +25,7 @@ public class CreateForever {
         modEventBus.addListener(this::commonSetup);
 
         ModItems.init(modEventBus);
+        ModCriteriaTriggers.init(modEventBus);
         ModBlocks.init(modEventBus);
         ModTabs.init(modEventBus);
         ModMenus.init(modEventBus);
