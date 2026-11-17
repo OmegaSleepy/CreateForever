@@ -8,12 +8,14 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.datagen.create.LocometalWashingRecipeProvider;
 import org.omega.createforever.datagen.create.ModCompactingProvider;
 import org.omega.createforever.datagen.create.ModCrushingProvider;
+import org.omega.createforever.datagen.vanilla.SewingAdvancementProvider;
 import org.omega.createforever.datagen.vanilla.*;
 
 import java.util.Collections;
@@ -36,6 +38,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModCompactingProvider(packOutput, lookupProvider, CreateForever.MODID));
         generator.addProvider(event.includeServer(), new ModCrushingProvider(packOutput, lookupProvider, CreateForever.MODID));
         generator.addProvider(event.includeServer(), new LocometalWashingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new AdvancementProvider(
+                packOutput, lookupProvider, existingFileHelper, List.of(new SewingAdvancementProvider())));
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);

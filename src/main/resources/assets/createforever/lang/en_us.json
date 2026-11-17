@@ -76,6 +76,23 @@
   "tag.createforever.halloween_hats": "Halloween",
   "tag.createforever.casual_hats": "Casual",
 
+  "advancements.createforever.sewing_spool.title": "A Thread to Start",
+  "advancements.createforever.sewing_spool.description": "Craft a sewing spool",
+  "advancements.createforever.sewing_station.title": "Time to Sew",
+  "advancements.createforever.sewing_station.description": "Craft a sewing station",
+  "advancements.createforever.hats.christmas_hats.title": "A Merry Collection",
+  "advancements.createforever.hats.christmas_hats.description": "Sew every Christmas hat",
+  "advancements.createforever.hats.christmas_hats_dyeable.title": "A Rainbow of Hats",
+  "advancements.createforever.hats.christmas_hats_dyeable.description": "Sew every dyeable Christmas hat",
+  "advancements.createforever.hats.legacy_hats.title": "The Classics",
+  "advancements.createforever.hats.legacy_hats.description": "Sew every legacy hat",
+  "advancements.createforever.hats.halloween_hats.title": "Spooky Style",
+  "advancements.createforever.hats.halloween_hats.description": "Sew every Halloween hat",
+  "advancements.createforever.hats.casual_hats.title": "Everyday Style",
+  "advancements.createforever.hats.casual_hats.description": "Sew every casual hat",
+  "advancements.createforever.hats.craftable_hats.title": "Master of the Needle",
+  "advancements.createforever.hats.craftable_hats.description": "Sew every craftable hat",
+
   "tab.createforver.hats": "Hats",
 
   "item.createforever.capela":"Straw Hat",
