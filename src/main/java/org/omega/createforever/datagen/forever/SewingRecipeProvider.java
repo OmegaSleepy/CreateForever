@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.Tags;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.items.ModItems;
 import org.omega.createforever.recipe.SewingRecipe;
@@ -60,29 +59,44 @@ public final class SewingRecipeProvider {
     }
 
     public static void buildRecipes(RecipeOutput output) {
-        add(output, "crown", ModItems.CROWN.get(), repeated(Items.GOLD_INGOT, 5, Items.DIAMOND));
-        add(output, "cook", ModItems.COOK.get(), repeated(Items.WHITE_WOOL, 2, Items.STRING));
-        add(output, "mask_pumpkin", ModItems.MASK_P.get(),
-                repeated(Items.STRING, 3, Items.CARVED_PUMPKIN));
-        add(output, "mask_slime", ModItems.MASK_S.get(),
-                repeated(Items.STRING, 3, Items.SLIME_BLOCK));
-        add(output, "capela", ModItems.CAPELA.get(),
-                repeated(Items.WHEAT, 3, Items.HAY_BLOCK));
-        add(output, "mafia", ModItems.MAFIA.get(),
-                repeated(Items.PURPLE_WOOL, 3, Items.STRING, Items.STRING, Items.YELLOW_DYE));
-        add(output, "witch", ModItems.WITCH.get(),
-                repeated(Items.GREEN_WOOL, 5, Items.EMERALD));
-        add(output, "chef", ModItems.CHEF.get(),
-                repeated(Items.BLACK_WOOL, 3, Items.RED_DYE, Items.RED_DYE, Items.BROWN_DYE));
-        add(output, "cat_ears", ModItems.CAT_EARS.get(),
-                repeated(Items.BLACK_WOOL, 2, Items.PINK_DYE, Items.PINK_DYE));
-        add(output, "baret", ModItems.BARET.get(),
-                repeated(Items.BLACK_WOOL, 3, Items.FEATHER));
+        add(output, "crown", ModItems.CROWN.get(),
+                repeated(Items.GOLD_INGOT, 3, Items.RED_WOOL, Items.DIAMOND));
 
-        add(output, "antler", ModItems.DEER_ANTLERS.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK));
-        add(output, "antler_rodolph", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(Items.STRIPPED_DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, Items.STICK, Items.RED_WOOL));
-        add(output, "antler_rodolph_alternative", ModItems.DEER_ANTLERS_RUDOLPH.get(), ingredients(ModItems.DEER_ANTLERS.get(), Items.RED_WOOL));
-        add(output, "elf_hat", ModItems.ELF_HAT.get(), ingredients(Items.RED_WOOL, Items.GREEN_WOOL, Items.BELL, Items.RED_WOOL));
+        add(output, "cook", ModItems.COOK.get(),
+                ingredients(Items.WHITE_WOOL, Items.WHITE_WOOL, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "mask_pumpkin", ModItems.MASK_P.get(),
+                ingredients(Items.CARVED_PUMPKIN, Items.STRING, ModItems.SEWING_SPOOL.get()));
+        add(output, "mask_slime", ModItems.MASK_S.get(),
+                ingredients(Items.SLIME_BALL, Items.STRING, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "capela", ModItems.CAPELA.get(),
+                repeated(Items.WHEAT, 3, Items.YELLOW_WOOL, Items.STRING));
+
+        add(output, "mafia", ModItems.MAFIA.get(),
+                ingredients(Items.PURPLE_WOOL, Items.PURPLE_WOOL, Items.LEATHER, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "witch", ModItems.WITCH.get(),
+                ingredients(Items.GREEN_WOOL, Items.BLACK_WOOL, Items.LEATHER, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "chef", ModItems.CHEF.get(),
+                ingredients(Items.BLACK_WOOL, Items.BLACK_WOOL, Items.RED_WOOL, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "cat_ears", ModItems.CAT_EARS.get(),
+                ingredients(Items.BLACK_WOOL, Items.PINK_WOOL, Items.LEATHER, Items.STRING));
+
+        add(output, "baret", ModItems.BARET.get(),
+                ingredients(Items.BLACK_WOOL, Items.BLACK_WOOL, Items.FEATHER, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "antler", ModItems.DEER_ANTLERS.get(),
+                ingredients(Items.LEATHER, Items.STICK, Items.STICK, Items.STRING));
+        add(output, "antler_rodolph", ModItems.DEER_ANTLERS_RUDOLPH.get(),
+                ingredients(Items.LEATHER, Items.STICK, Items.STICK, Items.RED_WOOL));
+        add(output, "antler_rodolph_alternative", ModItems.DEER_ANTLERS_RUDOLPH.get(),
+                ingredients(ModItems.DEER_ANTLERS.get(), Items.RED_WOOL, ModItems.SEWING_SPOOL.get()));
+
+        add(output, "elf_hat", ModItems.ELF_HAT.get(),
+                ingredients(Items.RED_WOOL, Items.GREEN_WOOL, Items.BELL, ModItems.SEWING_SPOOL.get()));
 
         for (Map.Entry<String, Item> entry : COLOR_WOOL.entrySet()) {
             String color = entry.getKey();
@@ -93,8 +107,8 @@ public final class SewingRecipeProvider {
                     .orElseThrow(() -> new IllegalStateException("Missing hat item: " + itemName))
                     .get();
 
-            add(output, itemName, hat, repeated(Items.WHITE_WOOL, 4,
-                    entry.getValue(), entry.getValue(), entry.getValue()));
+            add(output, itemName, hat,
+                    ingredients(entry.getValue(), entry.getValue(), Items.WHITE_WOOL, ModItems.SEWING_SPOOL.get()));
             add(output, itemName + "_from_dyeing", hat,
                     Ingredient.of(ModTags.Items.CHRISTMAS_HATS_DYEABLE),
                     Ingredient.of(COLOR_DYE.get(color)));
