@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.data.AdvancementProvider.AdvancementGenerator;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.omega.createforever.CreateForever;
@@ -46,19 +47,40 @@ public class SewingAdvancementProvider implements AdvancementGenerator {
                 .save(output, STATION_ADVANCEMENT.toString());
 
         for (var group : HatTagContents.GROUPS.entrySet()) {
-            addSewAllAdvancement(output, station, group.getKey(), group.getValue());
+            Item icon = getIconForTag(group.getKey(), group.getValue());
+            addSewAllAdvancement(output, station, group.getKey(), group.getValue(), icon);
         }
 
-        addSewAllAdvancement(output, station, ModTags.Items.CRAFTABLE_HATS, HatTagContents.CRAFTABLE_HATS);
+        addSewAllAdvancement(output, station, ModTags.Items.CRAFTABLE_HATS, HatTagContents.CRAFTABLE_HATS, ModItems.MAFIA);
+    }
+
+    private static Item getIconForTag(TagKey<Item> tag, List<Item> items) {
+        if (tag.equals(ModTags.Items.CASUAL_HATS)) {
+            return ModItems.CAPELA.get();
+        }
+        if (tag.equals(ModTags.Items.CHRISTMAS_HATS)) {
+            return ModItems.ELF_HAT.get();
+        }
+        if (tag.equals(ModTags.Items.CHRISTMAS_HATS_DYEABLE)) {
+            return ModItems.RED_CHRISTMAS_HAT.get();
+        }
+        if (tag.equals(ModTags.Items.HALLOWEEN_HATS)) {
+            return ModItems.MASK_P.get();
+        }
+        if (tag.equals(ModTags.Items.LEGACY_HATS)) {
+            return ModItems.CHEF.get();
+        }
+
+        return items.isEmpty() ? ModItems.SEWING_SPOOL.asItem() : items.getFirst();
     }
 
     private static void addSewAllAdvancement(Consumer<AdvancementHolder> output, AdvancementHolder parent,
-                                             TagKey<Item> tag, List<Item> items) {
+                                             TagKey<Item> tag, List<Item> items, ItemLike icon) {
         String path = tag.location().getPath();
         boolean challenge = tag.equals(ModTags.Items.CRAFTABLE_HATS);
         Advancement.Builder builder = Advancement.Builder.advancement()
                 .parent(parent)
-                .display(items.getFirst(), title("hats." + path), description("hats." + path),
+                .display(icon, title("hats." + path), description("hats." + path),
                         null, challenge ? AdvancementType.CHALLENGE : AdvancementType.GOAL,
                         true, true, false);
 
