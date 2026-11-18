@@ -16,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import org.omega.createforever.blocks.ModBlocks;
 import org.omega.createforever.recipe.SewingRecipe;
 
+import java.util.List;
+
 public final class SewingRecipeCategory
         implements IRecipeCategory<RecipeHolder<SewingRecipe>> {
 
@@ -70,20 +72,54 @@ public final class SewingRecipeCategory
             @NotNull RecipeHolder<SewingRecipe> recipe,
             @NotNull IFocusGroup focuses
     ) {
-        var ingredients = recipe.value().getIngredients();
+        var rawIngredients = recipe.value().getIngredients();
 
-        for (int i = 0; i < ingredients.size(); i++) { //recipe grid
+        List<List<ItemStack>> groupedStacks = new java.util.ArrayList<>();
+
+        for (var ingredient : rawIngredients) {
+            List<ItemStack> currentStacks = List.of(ingredient.getItems());
+            boolean merged = false;
+
+            for (List<ItemStack> existingGroup : groupedStacks) {
+                if (areIngredientStacksEqual(existingGroup, currentStacks)) {
+                    for (ItemStack stack : existingGroup) {
+                        stack.grow(1);
+                    }
+                    merged = true;
+                    break;
+                }
+            }
+
+            if (!merged) {
+                List<ItemStack> copies = currentStacks.stream()
+                        .map(ItemStack::copy)
+                        .toList();
+                groupedStacks.add(copies);
+            }
+        }
+
+        for (int i = 0; i < groupedStacks.size(); i++) {
             int x = 14 + (i % 3) * 20;
             int y = 9 + (i / 3) * 20;
 
             builder.addInputSlot(x, y)
                     .setStandardSlotBackground()
-                    .addIngredients(ingredients.get(i));
+                    .addItemStacks(groupedStacks.get(i));
         }
 
         builder.addOutputSlot(140, 29)
                 .setOutputSlotBackground()
                 .addItemStack(recipe.value().getResult());
+    }
+
+    private boolean areIngredientStacksEqual(List<ItemStack> a, List<ItemStack> b) {
+        if (a.size() != b.size()) return false;
+        for (int i = 0; i < a.size(); i++) {
+            if (!ItemStack.isSameItemSameComponents(a.get(i), b.get(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
