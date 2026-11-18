@@ -22,6 +22,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import org.omega.createforever.menus.SewingTableMenu;
+import org.omega.createforever.sound.ModSounds;
 
 public class SewingTableBlock extends HorizontalDirectionalBlock {
     public static final MapCodec<SewingTableBlock> CODEC = simpleCodec(SewingTableBlock::new);
@@ -54,13 +55,22 @@ public class SewingTableBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        level.playSound(
+                null,
+                pos,
+                ModSounds.SEWING.get(),
+                SoundSource.BLOCKS,
+                1.0f,
+                1.0f
+        );
+
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-            level.playLocalSound(pos, SoundEvents.UI_LOOM_SELECT_PATTERN, SoundSource.BLOCKS, 1.0f, 1.0f, true);
             serverPlayer.openMenu(new SimpleMenuProvider(
                     (containerId, inventory, menuPlayer) -> new SewingTableMenu(containerId, inventory, pos),
                     Component.translatable("block.createforever.sewing_table")
             ), buffer -> buffer.writeBlockPos(pos));
         }
+
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 }

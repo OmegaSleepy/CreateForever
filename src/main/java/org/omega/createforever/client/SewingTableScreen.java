@@ -23,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import org.omega.createforever.CreateForever;
 import org.omega.createforever.menus.SewingTableMenu;
 import org.omega.createforever.recipe.SewingRecipe;
+import org.omega.createforever.sound.ModSounds;
 import org.omega.createforever.util.ModTags;
 
 import java.util.*;
@@ -537,7 +538,7 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         if (button == 0 && menu.canCraftSelected()
                 && isInside(mouseX, mouseY, RECIPE_X - 1, 190, RECIPE_WIDTH + 2, 22)) {
             minecraft.gameMode.handleInventoryButtonClick(menu.containerId, SewingTableMenu.CRAFT_BUTTON);
-            minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_LOOM_TAKE_RESULT, 1.0F));
+            minecraft.getSoundManager().play(SimpleSoundInstance.forUI(ModSounds.SEWING.get(), 1.5F));
             minecraft.player.closeContainer();
             return true;
         }
