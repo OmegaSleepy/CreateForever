@@ -33,7 +33,7 @@ public class ModTabs {
                     }))
                     .build());
 
-    public static final Holder<CreativeModeTab> hats = TABS.register("tab.createforver.hats",
+    public static final Holder<CreativeModeTab> hats = TABS.register("tab.createforever.hats",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("tab.createforver.hats"))
                     .icon(() -> new ItemStack(ModItems.CHEF.get()))
