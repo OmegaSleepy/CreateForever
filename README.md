@@ -1,65 +1,87 @@
-# CreateForever
+# Create: Forever
 
-CreateForever adds new decorative, utility, and automation-focused content to enhance your Create-powered factories and builds in Minecraft.
+**Create: Forever** is Vanilla+ Create and more™ expansion.
 
 ## Features
 
-### Current Content (v1.0.0b)
+### Sewing & Hats
 
-- **Concrete & Concrete Powder**
-  - Colorless (blank) concrete and concrete powder variants.
-  - Full set of coloring recipes so you can dye the powder into any color using standard dyes.
+A dedicated sewing system for crafting wearable cosmetics.
 
-- **Playing Cards**
-  - A complete deck of **52 unique playing cards** (standard suits and ranks).
-  - **Card Pack** item for convenient storage or distribution.
+- **Sewing Table** with a custom crafting interface and recipe preview.
+- **Custom Sewing Recipes** with their own recipe type.
+- **Sewing Spools** used as crafting ingredients.
+- **Colorful Hats** including Christmas-themed hats, antlers and elf hats.
+- **Custom Advancements** for discovering and crafting hats.
+- **JEI Integration** for browsing sewing recipes.
 
-- **Automation Recipes**
-  - New Create-compatible recipes designed to improve automation workflows (data fixes and recipe improvements included in v1.0.0b).
+![Sewing Table UI](showcase-images/sewing-ui.png)
 
-The mod is built with **NeoForge** and is 100% Java.
+### Playing Cards
+
+Collectible playing cards and card packs.
+
+- A complete deck of **52 unique playing cards** (planed to be revamped soon)
+
+### Decorative & Utility Content
+
+- Colorless concrete and concrete powder variants.
+- A bunch of crafting recipes for Create and Steam n Rails.
+![A bunch of misc recipes](showcase-images/misc-recipes.png)
+- This includes automating create rocks, better zinc production, automated blaze cakes and the re-implementation of the old coloring recipes for locometal.
 
 ## Installation
 
-1. Download the latest release (.jar file) from the [Releases](https://github.com/OmegaSleepy/CreateForever/releases) tab.
-2. Place the mod JAR into your Minecraft `mods` folder.
-3. Launch the game and enjoy the new content!
+1. Download the latest release from [Modrinth](https://modrinth.com/mod/cfcm) or [GitHub Releases](https://github.com/OmegaSleepy/CreateForever/releases).
+2. Install the required dependencies.
+3. Place the mod JAR into your Minecraft `mods` folder.
+4. Launch Minecraft and enjoy!
 
-**Recommended Minecraft version:** 1.21.1 Neoforge 21.1.219+.
+**Minecraft version:** 1.21.1
+**Mod loader:** NeoForge
 
-## Compatibility
+## Dependencies
 
-- Requires **NeoForge**.
-- Works alongside the base **Create** mod and its ecosystem.
+- **NeoForge** — Required, 21.1.247+.
+- **Create** — Required, 6.0.10+.
+- **Create: Steam 'n' Rails** — Optional.
+- **Vinery** — Optional.
+- **Just Enough Items (JEI)** — Optional, recommended for recipe browsing.
 
-## Roadmap / Future Plans
+## Roadmap
 
-- More decorative blocks and Create-integrated machines.
-- Additional automation helpers and recipe expansions.
-- Themed content that fits the "forever factory" playstyle.
-- Weapons and roleplay style items
+Create: Forever is actively developed mod, expect bugs. Planned updates include:
 
-Suggestions and contributions are welcome!
+- More silly and unusual hats.
+- Rare hats, special hat cores and animated cosmetics.
+- Additional sewing ingredients and a dedicated tailor villager.
+- More playing card sets.
+- Card recycling and quality-of-life improvements.
+- A dedicated Card Shuffler block.
+
+Features and plans are subject to change.™™™™ (tm)
 
 ## Releases
 
-- **v1.0.0b** (Latest) — Data fixes + new automation recipes
-- **v1.0.0a** — Initial release with colorless concrete, coloring recipes, 52 playing cards, and card pack
+See [GitHub Releases](https://github.com/OmegaSleepy/CreateForever/releases) for release history and downloads.
 
-> Current active branch is v1, will merge when the "Flowers of Martinica" are finalized
+For development progress, visit the [GitHub repository](https://github.com/OmegaSleepy/CreateForever).
+
+## Contributing & Support
+
+Found a bug, have a suggestion, or want to contribute?
+
+- [Report bugs](https://github.com/OmegaSleepy/CreateForever/issues).
+- [Request features](https://github.com/OmegaSleepy/CreateForever/issues). (yeah its the same page)
+- [Browse the source code](https://github.com/OmegaSleepy/CreateForever).
+
+Contributions and feedback are always welcome!
 
 ## License
 
-This project is licensed under the [LICENSE](LICENSE) file included in the repository.
-
-## Contributing
-
-Feel free to open issues for bugs or feature requests, or submit pull requests if you'd like to help expand the mod.
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
 
 ---
+*Enjoy building forever!*
 
-**Made with ❤️ for the Create community**
-
-Enjoy building forever!
-
-> Който не играе, не разбира... - Х.К. 2025г.
+> Който не играе, не разбира... — Х.К., 2025 г.
