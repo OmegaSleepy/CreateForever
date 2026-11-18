@@ -1,11 +1,11 @@
 {
-  "block.createforever.concrete_powder": "Циментов прах",
+  "block.createforever.concrete_powder": "Цимент",
   "block.createforever.concrete": "Бетон",
   "block.createforever.enriched_tuff": "Обогатен туф",
   "block.createforever.sewing_table": "Шевна машина",
 
   "item.createforever.card_pack": "Тесте с карти",
-  "tab.createforever.cards": "Игрални карти",
+  "tab.createforever.cards": "Create Forever: Карти за игра",
 
   "item.createforever.sewing_spool": "Конец за шиене",
 
@@ -95,7 +95,7 @@
 
   "createforever.subtitle.sewing": "Шевна машина шие",
 
-  "tab.createforever.hats": "Шапки",
+  "tab.createforever.hats": "Create Forever: Шапки",
 
   "item.createforever.capela": "Капела",
   "item.createforever.crown": "Златна корона",
