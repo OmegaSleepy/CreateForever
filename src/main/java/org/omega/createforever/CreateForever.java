@@ -14,6 +14,7 @@ import org.omega.createforever.creative_tab.ModTabs;
 import org.omega.createforever.items.ModItems;
 import org.omega.createforever.menus.ModMenus;
 import org.omega.createforever.recipe.ModRecipeTypes;
+import org.omega.createforever.sound.ModSounds;
 import org.slf4j.Logger;
 
 @Mod(CreateForever.MODID)
@@ -30,6 +31,7 @@ public class CreateForever {
         ModTabs.init(modEventBus);
         ModMenus.init(modEventBus);
         ModRecipeTypes.init(modEventBus);
+        ModSounds.init(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
     }
