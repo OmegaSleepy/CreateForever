@@ -1,0 +1,10 @@
+{
+  "sewing": {
+    "subtitle": "createforever.subtitle.sewing",
+    "sounds": [
+      "createforever:sewing_machine_01",
+      "createforever:sewing_machine_02",
+      "createforever:sewing_machine_03"
+    ]
+  }
+}

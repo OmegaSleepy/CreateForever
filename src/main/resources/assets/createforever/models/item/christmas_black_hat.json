@@ -1,0 +1,6 @@
+{
+    "parent": "createforever:item/christmas_0_base_hat",
+    "textures": {
+        "1": "createforever:item/hat/christmas/black_hat"
+    }
+}

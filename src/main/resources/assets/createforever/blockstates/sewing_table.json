@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "createforever:block/sewing_table",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "createforever:block/sewing_table",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "createforever:block/sewing_table"
+    },
+    "facing=west": {
+      "model": "createforever:block/sewing_table",
+      "y": 90
+    }
+  }
+}
