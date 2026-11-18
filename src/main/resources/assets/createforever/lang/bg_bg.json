@@ -86,6 +86,7 @@
   "advancements.createforever.hats.casual_hats.description": "Ушийте всяка ежедневна шапка",
   "advancements.createforever.hats.craftable_hats.title": "Майстор на иглите",
   "advancements.createforever.hats.craftable_hats.description": "Ушийте всяка изработваема шапка",
+  "createforever.subtitle.sewing": "Шевна машина шие",
   "tab.createforver.hats": "Шапки",
   "item.createforever.capela": "Капела",
   "item.createforever.crown": "Златна корона",
@@ -115,5 +116,5 @@
   "item.createforever.christmas_black_hat": "Черна Коледна Шапка",
   "item.createforever.deer_antlers": "Рога на елен",
   "item.createforever.deer_antlers_rudolph": "Рогата на Рудолф",
-  "item.createforever.elf_hat": "Шапка на елф"
+  "item.createforever.elf_hat": "Шапка на елф",
 }
