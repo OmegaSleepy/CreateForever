@@ -1,6 +1,6 @@
 # Create: Forever
-
-**Create: Forever** is Vanilla+ Create and more™ expansion.
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/cfcm)](https://modrinth.com/mod/cfcm) [![Modrinth Game Versions](https://img.shields.io/modrinth/v/cfcm)](https://modrinth.com/mod/cfcm)   
+**Create: Forever** is Vanilla+ Create and more™ expansion.   
 
 ## Features
 
