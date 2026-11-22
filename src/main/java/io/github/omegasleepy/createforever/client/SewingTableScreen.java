@@ -16,6 +16,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -79,6 +80,10 @@ public class SewingTableScreen extends AbstractContainerScreen<SewingTableMenu> 
         }
         ClientLevel level = Minecraft.getInstance().level;
         previewPlayer = new RemotePlayer(level, Minecraft.getInstance().player.getGameProfile()) {
+            {
+                this.entityData.set(DATA_PLAYER_MODE_CUSTOMISATION, (byte) 0xFF);
+            }
+
             @Override
             public boolean shouldShowName() {
                 return false;
