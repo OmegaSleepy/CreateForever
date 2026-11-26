@@ -98,6 +98,9 @@ public final class SewingRecipeProvider {
         add(output, "elf_hat", ModItems.ELF_HAT.get(),
                 ingredients(Items.RED_WOOL, Items.GREEN_WOOL, Items.BELL, ModItems.SEWING_SPOOL.get()));
 
+        add(output, "traffic_cone", ModItems.TRAFFIC_CONE.get(),
+                ingredients(Items.BEDROCK));
+
         for (Map.Entry<String, Item> entry : COLOR_WOOL.entrySet()) {
             String color = entry.getKey();
             String itemName = "christmas_" + color + "_hat";

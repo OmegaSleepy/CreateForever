@@ -70,6 +70,9 @@ public class SewingAdvancementProvider implements AdvancementGenerator {
         if (tag.equals(ModTags.Items.LEGACY_HATS)) {
             return ModItems.CHEF.get();
         }
+        if (tag.equals(ModTags.Items.FUN_HATS)) {
+            return ModItems.TRAFFIC_CONE.get();
+        }
 
         return items.isEmpty() ? ModItems.SEWING_SPOOL.asItem() : items.getFirst();
     }

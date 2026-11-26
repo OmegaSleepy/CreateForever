@@ -44,6 +44,9 @@ public final class HatTagContents {
         groups.put(ModTags.Items.CHRISTMAS_HATS, Stream.concat(
                 CHRISTMAS_HATS_OTHER.stream(), CHRISTMAS_HATS_DYEABLE.stream()).toList());
         groups.put(ModTags.Items.CHRISTMAS_HATS_DYEABLE, CHRISTMAS_HATS_DYEABLE);
+        groups.put(ModTags.Items.FUN_HATS, List.of(
+                ModItems.TRAFFIC_CONE.get()
+        ));
         groups.put(ModTags.Items.LEGACY_HATS, List.of(
                 ModItems.CAPELA.get(),
                 ModItems.COOK.get(),
