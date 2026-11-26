@@ -36,7 +36,7 @@ public class ModTabs {
     public static final Holder<CreativeModeTab> hats = TABS.register("tab.createforever.hats",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("tab.createforever.hats"))
-                    .icon(() -> new ItemStack(ModItems.CHEF.get()))
+                    .icon(() -> new ItemStack(ModItems.TOP_HAT.get()))
                     .displayItems(((itemDisplayParameters, output) -> {
                         for (BaseHatItem hat : HatItem.getHats()) {
                             output.accept(hat);

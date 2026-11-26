@@ -45,13 +45,13 @@ public final class HatTagContents {
                 CHRISTMAS_HATS_OTHER.stream(), CHRISTMAS_HATS_DYEABLE.stream()).toList());
         groups.put(ModTags.Items.CHRISTMAS_HATS_DYEABLE, CHRISTMAS_HATS_DYEABLE);
         groups.put(ModTags.Items.LEGACY_HATS, List.of(
-                ModItems.CAPELA.get(),
+                ModItems.CAPELLA.get(),
                 ModItems.COOK.get(),
                 ModItems.CROWN.get(),
                 ModItems.MAFIA.get(),
                 ModItems.MASK_P.get(),
                 ModItems.MASK_S.get(),
-                ModItems.CHEF.get(),
+                ModItems.TOP_HAT.get(),
                 ModItems.WITCH.get()
         ));
         groups.put(ModTags.Items.HALLOWEEN_HATS, List.of(
@@ -61,8 +61,8 @@ public final class HatTagContents {
                 ModItems.CAT_EARS.get()
         ));
         groups.put(ModTags.Items.CASUAL_HATS, List.of(
-                ModItems.CAPELA.get(),
-                ModItems.BARET.get()
+                ModItems.CAPELLA.get(),
+                ModItems.BERET.get()
         ));
         GROUPS = Collections.unmodifiableMap(groups);
         CRAFTABLE_HATS = GROUPS.values().stream().flatMap(List::stream).distinct().toList();

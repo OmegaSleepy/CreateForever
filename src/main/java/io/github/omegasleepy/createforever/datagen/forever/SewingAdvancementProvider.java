@@ -56,7 +56,7 @@ public class SewingAdvancementProvider implements AdvancementGenerator {
 
     private static Item getIconForTag(TagKey<Item> tag, List<Item> items) {
         if (tag.equals(ModTags.Items.CASUAL_HATS)) {
-            return ModItems.CAPELA.get();
+            return ModItems.CAPELLA.get();
         }
         if (tag.equals(ModTags.Items.CHRISTMAS_HATS)) {
             return ModItems.ELF_HAT.get();
@@ -68,7 +68,7 @@ public class SewingAdvancementProvider implements AdvancementGenerator {
             return ModItems.MASK_P.get();
         }
         if (tag.equals(ModTags.Items.LEGACY_HATS)) {
-            return ModItems.CHEF.get();
+            return ModItems.TOP_HAT.get();
         }
 
         return items.isEmpty() ? ModItems.SEWING_SPOOL.asItem() : items.getFirst();

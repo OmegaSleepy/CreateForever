@@ -29,17 +29,17 @@ public class ModItems {
     public static final DeferredItem<Item> CARD_PACK = ITEMS.register("card_pack", CardPack::new);
     public static final DeferredItem<Item> SEWING_SPOOL = ITEMS.register("sewing_spool", () -> new Item(new Item.Properties().stacksTo(16)));
 
-    public static final DeferredItem<Item> CAPELA = ITEMS.register("capela", HatItem::new);
+    public static final DeferredItem<Item> CAPELLA = ITEMS.register("capella", HatItem::new);
     public static final DeferredItem<Item> COOK = ITEMS.register("cook", HatItem::new);
     public static final DeferredItem<Item> CROWN = ITEMS.register("crown", HatItem::new);
     public static final DeferredItem<Item> MAFIA = ITEMS.register("mafia", HatItem::new);
     public static final DeferredItem<Item> MASK_P = ITEMS.register("mask_pumpkin", HatItem::new);
     public static final DeferredItem<Item> MASK_S = ITEMS.register("mask_slime", HatItem::new);
-    public static final DeferredItem<Item> CHEF = ITEMS.register("chef", HatItem::new);
+    public static final DeferredItem<Item> TOP_HAT = ITEMS.register("top_hat", HatItem::new);
     public static final DeferredItem<Item> WITCH = ITEMS.register("witch", HatItem::new);
 
     public static final DeferredItem<Item> CAT_EARS = ITEMS.register("cat_ears", HatItem::new);
-    public static final DeferredItem<Item> BARET = ITEMS.register("baret", HatItem::new);
+    public static final DeferredItem<Item> BERET = ITEMS.register("beret", HatItem::new);
 
     public static final DeferredItem<Item> WHITE_CHRISTMAS_HAT = ITEMS.register("christmas_white_hat", HatItem::new);
     public static final DeferredItem<Item> LIGHT_GRAY_CHRISTMAS_HAT = ITEMS.register("christmas_light_gray_hat", HatItem::new);

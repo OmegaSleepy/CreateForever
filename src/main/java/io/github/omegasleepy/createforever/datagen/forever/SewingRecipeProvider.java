@@ -70,7 +70,7 @@ public final class SewingRecipeProvider {
         add(output, "mask_slime", ModItems.MASK_S.get(),
                 ingredients(Items.SLIME_BALL, Items.STRING, ModItems.SEWING_SPOOL.get()));
 
-        add(output, "capela", ModItems.CAPELA.get(),
+        add(output, "capela", ModItems.CAPELLA.get(),
                 repeated(Items.WHEAT, 3, Items.YELLOW_WOOL, Items.STRING));
 
         add(output, "mafia", ModItems.MAFIA.get(),
@@ -79,13 +79,13 @@ public final class SewingRecipeProvider {
         add(output, "witch", ModItems.WITCH.get(),
                 ingredients(Items.GREEN_WOOL, Items.BLACK_WOOL, Items.LEATHER, ModItems.SEWING_SPOOL.get()));
 
-        add(output, "chef", ModItems.CHEF.get(),
+        add(output, "chef", ModItems.TOP_HAT.get(),
                 ingredients(Items.BLACK_WOOL, Items.BLACK_WOOL, Items.RED_WOOL, ModItems.SEWING_SPOOL.get()));
 
         add(output, "cat_ears", ModItems.CAT_EARS.get(),
                 ingredients(Items.BLACK_WOOL, Items.PINK_WOOL, Items.LEATHER, Items.STRING));
 
-        add(output, "baret", ModItems.BARET.get(),
+        add(output, "baret", ModItems.BERET.get(),
                 ingredients(Items.BLACK_WOOL, Items.BLACK_WOOL, Items.FEATHER, ModItems.SEWING_SPOOL.get()));
 
         add(output, "antler", ModItems.DEER_ANTLERS.get(),
