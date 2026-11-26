@@ -50,48 +50,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             Map.entry(Items.PINK_DYE, Blocks.PINK_CONCRETE_POWDER)
     );
 
-    Map<String, Item> hatColors = Map.ofEntries(
-            Map.entry("white", Blocks.WHITE_WOOL.asItem()),
-            Map.entry("light_gray", Blocks.LIGHT_GRAY_WOOL.asItem()),
-            Map.entry("gray", Blocks.GRAY_WOOL.asItem()),
-            Map.entry("black", Blocks.BLACK_WOOL.asItem()),
-
-            Map.entry("brown", Blocks.BROWN_WOOL.asItem()),
-            Map.entry("red", Blocks.RED_WOOL.asItem()),
-            Map.entry("orange", Blocks.ORANGE_WOOL.asItem()),
-            Map.entry("yellow", Blocks.YELLOW_WOOL.asItem()),
-
-            Map.entry("lime", Blocks.LIME_WOOL.asItem()),
-            Map.entry("green", Blocks.GREEN_WOOL.asItem()),
-            Map.entry("cyan", Blocks.CYAN_WOOL.asItem()),
-            Map.entry("light_blue", Blocks.LIGHT_BLUE_WOOL.asItem()),
-
-            Map.entry("blue", Blocks.BLUE_WOOL.asItem()),
-            Map.entry("purple", Blocks.PURPLE_WOOL.asItem()),
-            Map.entry("magenta", Blocks.MAGENTA_WOOL.asItem()),
-            Map.entry("pink", Blocks.PINK_WOOL.asItem())
-    );
-
-    Map<String, Item> colorToDye = Map.ofEntries(
-            Map.entry("white", Items.WHITE_DYE),
-            Map.entry("light_gray", Items.LIGHT_GRAY_DYE),
-            Map.entry("gray", Items.GRAY_DYE),
-            Map.entry("black", Items.BLACK_DYE),
-            Map.entry("brown", Items.BROWN_DYE),
-            Map.entry("red", Items.RED_DYE),
-            Map.entry("orange", Items.ORANGE_DYE),
-            Map.entry("yellow", Items.YELLOW_DYE),
-            Map.entry("lime", Items.LIME_DYE),
-            Map.entry("green", Items.GREEN_DYE),
-            Map.entry("cyan", Items.CYAN_DYE),
-            Map.entry("light_blue", Items.LIGHT_BLUE_DYE),
-            Map.entry("blue", Items.BLUE_DYE),
-            Map.entry("purple", Items.PURPLE_DYE),
-            Map.entry("magenta", Items.MAGENTA_DYE),
-            Map.entry("pink", Items.PINK_DYE)
-    );
-
-
     @Override
     protected void buildRecipes (RecipeOutput recipeOutput) {
         LocometalRecipeProvider.buildRecipes(recipeOutput, this.lookupProvider);
