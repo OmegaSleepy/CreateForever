@@ -30,11 +30,13 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.Items.LEGACY_HATS).add(HatTagContents.GROUPS.get(ModTags.Items.LEGACY_HATS).toArray(Item[]::new));
         tag(ModTags.Items.HALLOWEEN_HATS).add(HatTagContents.GROUPS.get(ModTags.Items.HALLOWEEN_HATS).toArray(Item[]::new));
         tag(ModTags.Items.CASUAL_HATS).add(HatTagContents.GROUPS.get(ModTags.Items.CASUAL_HATS).toArray(Item[]::new));
+        tag(ModTags.Items.FUN_HATS).add(HatTagContents.GROUPS.get(ModTags.Items.FUN_HATS).toArray(Item[]::new));
 
         tag(ModTags.Items.CRAFTABLE_HATS)
                 .addTag(ModTags.Items.CHRISTMAS_HATS)
                 .addTag(ModTags.Items.LEGACY_HATS)
                 .addTag(ModTags.Items.HALLOWEEN_HATS)
-                .addTag(ModTags.Items.CASUAL_HATS);
+                .addTag(ModTags.Items.CASUAL_HATS)
+                .addTag(ModTags.Items.FUN_HATS);
     }
 }

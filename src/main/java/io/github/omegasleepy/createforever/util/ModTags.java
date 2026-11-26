@@ -24,6 +24,7 @@ public class ModTags {
         public static final TagKey<Item> CHRISTMAS_HATS_DYEABLE = createTag("christmas_hats_dyeable");
         public static final TagKey<Item> HALLOWEEN_HATS = createTag("halloween_hats");
         public static final TagKey<Item> CASUAL_HATS = createTag("casual_hats");
+        public static final TagKey<Item> FUN_HATS = createTag("fun_hats");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CreateForever.MODID, name));
